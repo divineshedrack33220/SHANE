@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shane_r's BC.Game Affiliate and Kick Streaming Hub">
+    <meta name="og:title" content="Shane_r's Crypto Casino Adventure">
+    <meta name="og:description" content="Join Shane_r on BC.Game with his exclusive affiliate code and watch live on Kick!">
+    <title>Shane_r - BC.Game Affiliate & Kick Streamer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.137.5/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --dark-green: #0a6e10;
+            --bright-green: #0faf1c;
+            --light-gray: #E0E0E0;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .subheading {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .text-3d {
+            text-shadow: 2px 2px 4px var(--dark-green);
+        }
+        
+        .btn-primary {
+            background-color: var(--bright-green);
+            border: 2px solid var(--dark-green);
+            box-shadow: 0 0 10px var(--bright-green);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: perspective(500px) translateZ(10px);
+        }
+        
+        .btn-secondary {
+            background-color: var(--dark-green);
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            transform: rotateY(5deg);
+        }
+        
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+        }
+        
+        .card-3d:hover {
+            transform: perspective(500px) rotateY(10deg);
+        }
+        
+        .flip-card {
+            perspective: 1000px;
+        }
+        
+        .flip-card-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flip-card-front, .flip-card-back {
+            backface-visibility: hidden;
+        }
+        
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+        
+        .nav-item {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item:hover {
+            transform: translateZ(5px);
+            border-bottom: 2px solid var(--bright-green);
+        }
+        
+        .mobile-nav-item {
+            transition: all 0.2s ease;
+        }
+        
+        .mobile-nav-item:active {
+            transform: scale(1.2);
+        }
+        
+        .wave-bg {
+            position: relative;
+        }
+        
+        .wave-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path fill="%230faf1c" d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.21,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25"/><path fill="%230faf1c" d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5"/><path fill="%230faf1c" d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"/></svg>');
+            background-size: cover;
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateZ(10px);
+        }
+        
+        .input-3d {
+            box-shadow: inset 0 0 5px var(--bright-green);
+            transition: all 0.3s ease;
+        }
+        
+        .input-3d:focus {
+            box-shadow: inset 0 0 10px var(--bright-green);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-text {
+                text-shadow: 1px 1px 2px var(--dark-green);
+            }
+            
+            .mobile-btn {
+                width: 100%;
+                height: 40px;
+            }
+            
+            .mobile-card {
+                width: 90%;
+            }
+        }
+        
+        /* Confetti animation */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: var(--bright-green);
+            opacity: 0;
+            animation: confetti-fall 5s ease-in-out forwards;
+            z-index: 1000;
+        }
+        
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Loading animation */
+        .loader {
+            width: 80px;
+            height: 80px;
+            border: 8px solid var(--dark-green);
+            border-top: 8px solid var(--bright-green);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Easter Egg Page */
+        .trophy {
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, var(--bright-green) 20%, var(--dark-green) 70%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px var(--bright-green);
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+        }
+
+        .trophy:hover {
+            transform: perspective(500px) rotateY(15deg) translateZ(20px);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Loading Screen -->
+    <div id="loading" class="fixed inset-0 bg-black z-50 flex flex-col items-center justify-center">
+        <div class="loader mb-4"></div>
+        <p class="text-white text-xl font-bold">Loading Shane_r's World...</p>
+    </div>
+
+    <!-- Navigation - Desktop -->
+    <nav class="hidden md:flex items-center justify-between px-8 py-4 bg-black bg-opacity-95 backdrop-blur-sm sticky top-0 z-40 shadow-lg" style="box-shadow: 0 4px 10px var(--dark-green); height: 80px;">
+        <div class="text-2xl font-bold" style="color: var(--bright-green); text-shadow: 2px 2px 4px var(--dark-green);">Shane_r</div>
+        <div class="flex space-x-8">
+            <a href="#home" class="nav-item text-white">Home</a>
+            <a href="#stream" class="nav-item text-white">Stream</a>
+            <a href="#affiliate" class="nav-item text-white">Affiliate</a>
+            <a href="#blog" class="nav-item text-white">Blog</a>
+            <a href="#community" class="nav-item text-white">Community</a>
+            <a href="#contact" class="nav-item text-white">Contact</a>
+            <a href="/shane_r_hall_of_fame" class="nav-item text-white">Hall of Fame</a>
+        </div>
+    </nav>
+
+    <!-- Navigation - Mobile -->
+    <nav class="md:hidden flex items-center justify-around fixed bottom-0 left-0 right-0 bg-black z-40 py-3" style="height: 60px;">
+        <a href="#home" class="mobile-nav-item flex flex-col items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+        </a>
+        <a href="#stream" class="mobile-nav-item flex flex-col items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+        </a>
+        <a href="#affiliate" class="mobile-nav-item flex flex-col items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+            </svg>
+        </a>
+        <a href="#blog" class="mobile-nav-item flex flex-col items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+            </svg>
+        </a>
+        <a href="#community" class="mobile-nav-item flex flex-col items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+        </a>
+        <a href="#contact" class="mobile-nav-item flex flex-col items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center bg-black overflow-hidden">
+        <!-- 3D Casino Chip Animation -->
+        <canvas id="casino-chip" class="absolute inset-0 z-0"></canvas>
+        <div class="relative z-10 text-center px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 hero-text text-3d">Join Shane_r's Crypto Casino Adventure!</h1>
+            <div class="flex flex-col md:flex-row justify-center gap-4 mt-8">
+                <button class="btn-primary px-8 py-3 rounded-lg font-bold text-lg mx-auto md:mx-0 mobile-btn" onclick="copyAffiliateCode()">Use Shane_r's Code on BC.Game</button>
+                <button class="btn-secondary px-6 py-2 rounded-lg font-bold text-lg mx-auto md:mx-0 mobile-btn">Watch Live on Kick</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Content -->
+    <section class="py-16 px-4 md:px-8 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold mb-8 text-center">Latest Highlights</h2>
+        
+        <!-- Stream Highlights Carousel -->
+        <div class="swiper-container mb-16">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="card-3d bg-gray-900 rounded-lg overflow-hidden border-2" style="border-color: var(--bright-green);">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold mb-2">Biggest Win of the Week</h3>
+                            <p class="text-gray-300">Watch Shane_r hit the jackpot on BC.Game!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card-3d bg-gray-900 rounded-lg overflow-hidden border-2" style="border-color: var(--bright-green);">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold mb-2">New Game Strategy</h3>
+                            <p class="text-gray-300">Learn Shane_r's winning strategy for slots</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card-3d bg-gray-900 rounded-lg overflow-hidden border-2" style="border-color: var(--bright-green);">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold mb-2">Community Challenge</h3>
+                            <p class="text-gray-300">Join our weekly crypto challenge</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card-3d bg-gray-900 rounded-lg overflow-hidden border-2" style="border-color: var(--bright-green);">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold mb-2">Live Q&A Session</h3>
+                            <p class="text-gray-300">Ask Shane_r anything about crypto gaming</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        
+        <!-- Latest Wins Section -->
+        <h2 class="text-3xl font-bold mb-8 text-center">Shane_r's Latest Wins</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="flip-card h-64">
+                <div class="flip-card-inner h-full">
+                    <div class="flip-card-front h-full bg-gray-900 rounded-lg border-2 flex flex-col items-center justify-center p-4" style="border-color: var(--bright-green);">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <h3 class="text-xl font-bold mb-2">$5,000</h3>
+                        <p class="text-gray-300">Slot Machine Win</p>
+                    </div>
+                    <div class="flip-card-back h-full rounded-lg flex flex-col items-center justify-center p-4" style="background-color: var(--dark-green);">
+                        <h3 class="text-xl font-bold mb-2">Mega Fortune</h3>
+                        <p class="text-center mb-4">Progressive Jackpot</p>
+                        <p class="text-sm text-center">June 15, 2023</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flip-card h-64">
+                <div class="flip-card-inner h-full">
+                    <div class="flip-card-front h-full bg-gray-900 rounded-lg border-2 flex flex-col items-center justify-center p-4" style="border-color: var(--bright-green);">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <h3 class="text-xl font-bold mb-2">$3,200</h3>
+                        <p class="text-gray-300">Blackjack Win</p>
+                    </div>
+                    <div class="flip-card-back h-full rounded-lg flex flex-col items-center justify-center p-4" style="background-color: var(--dark-green);">
+                        <h3 class="text-xl font-bold mb-2">Perfect 21</h3>
+                        <p class="text-center mb-4">5x Multiplier</p>
+                        <p class="text-sm text-center">June 10, 2023</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flip-card h-64">
+                <div class="flip-card-inner h-full">
+                    <div class="flip-card-front h-full bg-gray-900 rounded-lg border-2 flex flex-col items-center justify-center p-4" style="border-color: var(--bright-green);">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <h3 class="text-xl font-bold mb-2">$7,500</h3>
+                        <p class="text-gray-300">Roulette Win</p>
+                    </div>
+                    <div class="flip-card-back h-full rounded-lg flex flex-col items-center justify-center p-4" style="background-color: var(--dark-green);">
+                        <h3 class="text-xl font-bold mb-2">Lucky Number 17</h3>
+                        <p class="text-center mb-4">Straight Up Bet</p>
+                        <p class="text-sm text-center">June 5, 2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stream Page -->
+    <section id="stream" class="py-16 px-4 md:px-8 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold mb-8 text-center">Live Stream</h2>
+        
+        <div class="flex flex-col md:flex-row gap-8">
+            <!-- Stream Embed -->
+            <div class="flex-1">
+                <div class="relative rounded-lg overflow-hidden shadow-lg" style="box-shadow: 0 0 15px var(--bright-green);">
+                    <iframe class="aspect-w-16 aspect-h-9 w-full" src="https://kick.com/shane_r/embed" frameborder="0" allowfullscreen></iframe>
+                    <div class="absolute top-4 right-4 bg-red-600 px-3 py-1 rounded-full font-bold text-sm" style="transform: translateZ(10px);">LIVE NOW</div>
+                </div>
+                
+                <!-- Stream Info -->
+                <div class="mt-4">
+                    <h3 class="text-xl font-bold">Shane_r's Crypto Casino Stream</h3>
+                    <p class="text-gray-300 mt-2">Playing BC.Game slots and table games with viewers</p>
+                </div>
+            </div>
+            
+            <!-- Schedule Widget -->
+            <div class="md:w-80">
+                <div class="bg-gray-900 rounded-lg p-4 border-2" style="border-color: var(--dark-green);">
+                    <h3 class="text-xl font-bold mb-4">Stream Schedule</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flip-card h-24">
+                            <div class="flip-card-inner h-full">
+                                <div class="flip-card-front h-full bg-gray-800 rounded-lg p-3 flex items-center">
+                                    <div class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center mr-3">
+                                        <span class="font-bold">M</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">Monday</h4>
+                                        <p class="text-sm text-gray-300">8 PM - 11 PM EST</p>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back h-full rounded-lg flex items-center justify-center p-3" style="background-color: var(--dark-green);">
+                                    <p class="text-center">High Stakes Slots Night</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flip-card h-24">
+                            <div class="flip-card-inner h-full">
+                                <div class="flip-card-front h-full bg-gray-800 rounded-lg p-3 flex items-center">
+                                    <div class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center mr-3">
+                                        <span class="font-bold">W</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">Wednesday</h4>
+                                        <p class="text-sm text-gray-300">8 PM - 11 PM EST</p>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back h-full rounded-lg flex items-center justify-center p-3" style="background-color: var(--dark-green);">
+                                    <p class="text-center">Blackjack Strategy Session</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flip-card h-24">
+                            <div class="flip-card-inner h-full">
+                                <div class="flip-card-front h-full bg-gray-800 rounded-lg p-3 flex items-center">
+                                    <div class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center mr-3">
+                                        <span class="font-bold">F</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">Friday</h4>
+                                        <p class="text-sm text-gray-300">9 PM - 12 AM EST</p>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back h-full rounded-lg flex items-center justify-center p-3" style="background-color: var(--dark-green);">
+                                    <p class="text-center">Weekend Kickoff Bonanza</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sticky CTA -->
+        <div class="fixed bottom-4 right-4 bg-gray-900 rounded-lg p-3 shadow-lg border-2" style="border-color: var(--bright-green); transform: perspective(500px) rotateY(5deg);">
+            <button class="btn-primary px-4 py-2 rounded-lg font-bold" onclick="copyAffiliateCode()">Join BC.Game with Shane_r's Code</button>
+        </div>
+    </section>
+
+    <!-- Affiliate Landing Page -->
+    <section id="affiliate" class="py-16 px-4 md:px-8 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold mb-8 text-center">Unlock Exclusive Bonuses</h2>
+        
+        <div class="flex flex-col md:flex-row items-center gap-8">
+            <div class="md:w-1/2">
+                <!-- 3D Slot Machine Animation -->
+                <canvas id="slot-machine" class="relative h-64 md:h-96 w-full rounded-lg"></canvas>
+            </div>
+            
+            <div class="md:w-1/2">
+                <h3 class="text-2xl md:text-3xl font-bold mb-4 text-3d">Unlock Bonuses with Shane_r's Code!</h3>
+                <p class="text-gray-300 mb-6">Sign up through Shane_r's affiliate link to get exclusive bonuses and join his community of crypto casino players.</p>
+                
+                <div class="mb-6">
+                    <label class="block text-gray-300 mb-2">Your Affiliate Code</label>
+                    <input type="text" value="SHANE_R_CODE" readonly class="w-full px-4 py-3 bg-gray-800 rounded-lg input-3d text-white font-mono" id="affiliate-code">
+                </div>
+                
+                <button class="btn-primary w-full py-3 rounded-lg font-bold text-lg mb-6" onclick="copyAffiliateCode()">Sign Up Now on BC.Game</button>
+                
+                <div class="flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor" style="color: var(--bright-green);">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-gray-300">200% First Deposit Bonus</span>
+                </div>
+                <div class="flex items-center mt-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor" style="color: var(--bright-green);">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-gray-300">Exclusive Weekly Promotions</span>
+                </div>
+                <div class="flex items-center mt-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor" style="color: var(--bright-green);">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-gray-300">Access to Shane_r's VIP Community</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Benefits Section -->
+        <div class="mt-16">
+            <h3 class="text-2xl font-bold mb-8 text-center">Why Join Through Shane_r?</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="flip-card h-64">
+                    <div class="flip-card-inner h-full">
+                        <div class="flip-card-front h-full bg-gray-900 rounded-lg border-2 flex flex-col items-center justify-center p-4" style="border-color: var(--bright-green);">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                            </svg>
+                            <h3 class="text-xl font-bold mb-2">Higher Bonuses</h3>
+                            <p class="text-gray-300">Exclusive to Shane_r's community</p>
+                        </div>
+                        <div class="flip-card-back h-full rounded-lg flex flex-col items-center justify-center p-4" style="background-color: var(--dark-green);">
+                            <p class="text-center">Get up to 200% bonus on your first deposit when you use Shane_r's code</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card h-64">
+                    <div class="flip-card-inner h-full">
+                        <div class="flip-card-front h-full bg-gray-900 rounded-lg border-2 flex flex-col items-center justify-center p-4" style="border-color: var(--bright-green);">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                            <h3 class="text-xl font-bold mb-2">Community Access</h3>
+                            <p class="text-gray-300">Join our exclusive group</p>
+                        </div>
+                        <div class="flip-card-back h-full rounded-lg flex flex-col items-center justify-center p-4" style="background-color: var(--dark-green);">
+                            <p class="text-center">Get access to Shane_r's private Discord with strategy sessions and giveaways</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card h-64">
+                    <div class="flip-card-inner h-full">
+                        <div class="flip-card-front h-full bg-gray-900 rounded-lg border-2 flex flex-col items-center justify-center p-4" style="border-color: var(--bright-green);">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                            <h3 class="text-xl font-bold mb-2">Pro Strategies</h3>
+                            <p class="text-gray-300">Learn from the best</p>
+                        </div>
+                        <div class="flip-card-back h-full rounded-lg flex flex-col items-center justify-center p-4" style="background-color: var(--dark-green);">
+                            <p class="text-center">Get Shane_r's personal strategies for maximizing your crypto casino experience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Testimonials -->
+        <div class="mt-16">
+            <h3 class="text-2xl font-bold mb-8 text-center">What Our Community Says</h3>
+            
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="bg-gray-900 rounded-lg p-6 border-2" style="border-color: var(--dark-green); transform: perspective(500px) rotateY(10deg);">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center mr-4">
+                                    <span class="text-xl font-bold">J</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">John D.</h4>
+                                    <p class="text-sm text-gray-300">BC.Game Player</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-300">"Shane_r's code got me a 200% bonus! His strategies helped me turn that into $3,000 in my first week. The community is super helpful too."</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-gray-900 rounded-lg p-6 border-2" style="border-color: var(--dark-green); transform: perspective(500px) rotateY(10deg);">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center mr-4">
+                                    <span class="text-xl font-bold">S</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Sarah K.</h4>
+                                    <p class="text-sm text-gray-300">Kick Viewer</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-300">"I've learned so much from Shane_r's streams. The affiliate bonuses are just icing on the cake. Definitely recommend joining through his link!"</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-gray-900 rounded-lg p-6 border-2" style="border-color: var(--dark-green); transform: perspective(500px) rotateY(10deg);">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center mr-4">
+                                    <span class="text-xl font-bold">M</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Mike T.</h4>
+                                    <p class="text-sm text-gray-300">Discord Member</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-300">"The private Discord group is worth it alone. Shane_r shares strategies you won't find anywhere else. Plus the weekly giveaways are insane!"</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Page -->
+    <section id="blog" class="py-16 px-4 md:px-8 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold mb-8 text-center">Latest Articles</h2>
+        
+        <div class="flex flex-col md:flex-row gap-8">
+            <div class="md:w-2/3">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="card-3d bg-gray-900 rounded-lg overflow-hidden border-2 mobile-card" style="border-color: var(--bright-green);">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                            </svg>
+                        </div>
+                        <div class="p-4">
+                            <span class="text-sm text-gray-400">June 15, 2023</span>
+                            <h3 class="text-xl font-bold my-2">5 Slot Strategies That Actually Work</h3>
+                            <p class="text-gray-300 mb-4">Learn the strategies Shane_r uses to maximize wins on BC.Game slots.</p>
+                            <button class="btn-secondary px-4 py-2 rounded-lg text-sm font-bold">Read More</button>
+                        </div>
+                    </div>
+                    
+                    <div class="card-3d bg-gray-900 rounded-lg overflow-hidden border-2 mobile-card" style="border-color: var(--bright-green);">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div class="p-4">
+                            <span class="text-sm text-gray-400">June 10, 2023</span>
+                            <h3 class="text-xl font-bold my-2">Best Crypto Games for High Rollers</h3>
+                            <p class="text-gray-300 mb-4">Discover which crypto casino games offer the best odds for big bets.</p>
+                            <button class="btn-secondary px-4 py-2 rounded-lg text-sm font-bold">Read More</button>
+                        </div>
+                    </div>
+                    
+                    <div class="card-3d bg-gray-900 rounded-lg overflow-hidden border-2 mobile-card" style="border-color: var(--bright-green);">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                        <div class="p-4">
+                            <span class="text-sm text-gray-400">June 5, 2023</span>
+                            <h3 class="text-xl font-bold my-2">Avoiding Common Crypto Casino Mistakes</h3>
+                            <p class="text-gray-300 mb-4">Learn from Shane_r's experience to avoid costly errors in crypto gambling.</p>
+                            <button class="btn-secondary px-4 py-2 rounded-lg text-sm font-bold">Read More</button>
+                        </div>
+                    </div>
+                    
+                    <div class="card-3d bg-gray-900 rounded-lg overflow-hidden border-2 mobile-card" style="border-color: var(--bright-green);">
+                        <div class="h-48 bg-gray-800 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <div class="p-4">
+                            <span class="text-sm text-gray-400">May 28, 2023</span>
+                            <h3 class="text-xl font-bold my-2">How to Manage Your Crypto Bankroll</h3>
+                            <p class="text-gray-300 mb-4">Shane_r's proven methods for managing your gambling funds in crypto.</p>
+                            <button class="btn-secondary px-4 py-2 rounded-lg text-sm font-bold">Read More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pagination -->
+                <div class="flex justify-center mt-8">
+                    <div class="flex space-x-2">
+                        <button class="w-10 h-10 rounded-full bg-gray-800 text-white font-bold flex items-center justify-center nav-item">1</button>
+                        <button class="w-10 h-10 rounded-full bg-gray-800 text-white font-bold flex items-center justify-center nav-item">2</button>
+                        <button class="w-10 h-10 rounded-full bg-gray-800 text-white font-bold flex items-center justify-center nav-item">3</button>
+                        <button class="w-10 h-10 rounded-full bg-gray-800 text-white font-bold flex items-center justify-center nav-item">></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="md:w-1/3">
+                <div class="bg-gray-900 rounded-lg p-4 mb-6 border-2" style="border-color: var(--dark-green);">
+                    <h3 class="text-xl font-bold mb-4">Top Posts</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-16 h-16 bg-gray-800 rounded flex items-center justify-center mr-3">
+                                <span class="text-2xl font-bold">1</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Crypto Casino Beginner's Guide</h4>
+                                <p class="text-sm text-gray-300">May 15, 2023</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-16 h-16 bg-gray-800 rounded flex items-center justify-center mr-3">
+                                <span class="text-2xl font-bold">2</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Best BC.Game Bonuses</h4>
+                                <p class="text-sm text-gray-300">May 22, 2023</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-16 h-16 bg-gray-800 rounded flex items-center justify-center mr-3">
+                                <span class="text-2xl font-bold">3</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Taxes on Crypto Winnings</h4>
+                                <p class="text-sm text-gray-300">June 1, 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-900 rounded-lg p-4 border-2" style="border-color: var(--dark-green);">
+                    <h3 class="text-xl font-bold mb-4">Recent Streams</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-16 h-16 bg-gray-800 rounded flex items-center justify-center mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">$10,000 Slot Challenge</h4>
+                                <p class="text-sm text-gray-300">June 14, 2023</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-16 h-16 bg-gray-800 rounded flex items-center justify-center mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Blackjack Strategy Session</h4>
+                                <p class="text-sm text-gray-300">June 12, 2023</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-16 h-16 bg-gray-800 rounded flex items-center justify-center mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Roulette High Roller</h4>
+                                <p class="text-sm text-gray-300">June 8, 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Affiliate CTA -->
+                <div class="mt-6 bg-gray-900 rounded-lg p-4 border-2" style="border-color: var(--bright-green);">
+                    <h3 class="text-xl font-bold mb-2">Join BC.Game Today!</h3>
+                    <p class="text-gray-300 mb-4">Use Shane_r's code for exclusive bonuses</p>
+                    <button class="btn-primary w-full py-2 rounded-lg font-bold" onclick="copyAffiliateCode()">Sign Up Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Page -->
+    <section id="community" class="py-16 px-4 md:px-8 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold mb-8 text-center">Join Our Community</h2>
+        
+        <div class="flex flex-col md:flex-row gap-8">
+            <div class="md:w-2/3">
+                <!-- Discord Embed -->
+                <div class="bg-gray-900 rounded-lg p-4 mb-8 border-2" style="border-color: var(--bright-green); transform: perspective(500px) rotateY(5deg);">
+                    <h3 class="text-xl font-bold mb-4">Discord Server</h3>
+                    <iframe src="https://discord.com/widget?id=your-discord-id&theme=dark" width="100%" height="400" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+                    <p class="text-gray-300 mt-4">Join Shane_r's exclusive Discord community for strategy sessions, giveaways, and more!</p>
+                    <button class="btn-primary w-full mt-4 py-2 rounded-lg font-bold">Join Discord</button>
+                </div>
+                
+                <!-- Fan Wall -->
+                <h3 class="text-2xl font-bold mb-4">Fan Highlights</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <div class="card-3d bg-gray-900 rounded-lg overflow-hidden border-2 mobile-card" style="border-color: var(--bright-green);">
+                        <div class="h-32 bg-gray-800 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                        </div>
+                        <div class="p-3">
+                            <h4 class="font-bold">@CryptoKing</h4>
+                            <p class="text-sm text-gray-300">Won $2,500!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card-3d bg-gray-900 rounded-lg overflow-hidden border-2 mobile-card" style="border-color: var(--bright-green);">
+                        <div class="h-32 bg-gray-800 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                        </div>
+                        <div class="p-3">
+                            <h4 class="font-bold">@SlotQueen</h4>
+                            <p class="text-sm text-gray-300">Hit the jackpot!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card-3d bg-gray-900 rounded-lg overflow-hidden border-2 mobile-card" style="border-color: var(--bright-green);">
+                        <div class="h-32 bg-gray-800 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                        </div>
+                        <div class="p-3">
+                            <h4 class="font-bold">@BitcoinBandit</h4>
+                            <p class="text-sm text-gray-300">5x multiplier win</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card-3d bg-gray-900 rounded-lg overflow-hidden border-2 mobile-card" style="border-color: var(--bright-green);">
+                        <div class="h-32 bg-gray-800 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                        </div>
+                        <div class="p-3">
+                            <h4 class="font-bold">@DiceMaster</h4>
+                            <p class="text-sm text-gray-300">Perfect 6 streak</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card-3d bg-gray-900 rounded-lg overflow-hidden border-2 mobile-card" style="border-color: var(--bright-green);">
+                        <div class="h-32 bg-gray-800 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                        </div>
+                        <div class="p-3">
+                            <h4 class="font-bold">@RoulettePro</h4>
+                            <p class="text-sm text-gray-300">10 straight wins</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card-3d bg-gray-900 rounded-lg overflow-hidden border-2 mobile-card" style="border-color: var(--bright-green);">
+                        <div class="h-32 bg-gray-800 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                        </div>
+                        <div class="p-3">
+                            <h4 class="font-bold">@CryptoShark</h4>
+                            <p class="text-sm text-gray-300">$5,000 in one day</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="md:w-1/3">
+                <!-- Giveaway Section -->
+                <div class="bg-gray-900 rounded-lg p-4 mb-6 border-2" style="border-color: var(--dark-green);">
+                    <h3 class="text-xl font-bold mb-4">Weekly Giveaway</h3>
+                    
+                    <div class="bg-gray-800 rounded-lg p-4 mb-4 flex flex-col items-center">
+                        <h4 class="text-lg font-bold mb-2">Win $50 BC.Game Credit!</h4>
+                        <p class="text-gray-300 mb-4">Enter by signing up with Shane_r's affiliate code</p>
+                        <div id="countdown" class="text-2xl font-mono mb-4"></div>
+                        <button class="btn-primary w-full py-2 rounded-lg font-bold" onclick="copyAffiliateCode()">Enter Now</button>
+                    </div>
+                </div>
+                
+                <!-- Community CTA -->
+                <div class="bg-gray-900 rounded-lg p-4 border-2" style="border-color: var(--bright-green);">
+                    <h3 class="text-xl font-bold mb-2">Join the Fun!</h3>
+                    <p class="text-gray-300 mb-4">Be part of Shane_r's crypto casino community</p>
+                    <button class="btn-primary w-full py-2 rounded-lg font-bold">Join Discord</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact" class="py-16 px-4 md:px-8 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold mb-8 text-center">Get in Touch</h2>
+        
+        <div class="flex flex-col md:flex-row gap-8">
+            <div class="md:w-1/2">
+                <div class="bg-gray-900 rounded-lg p-6 border-2" style="border-color: var(--bright-green);">
+                    <h3 class="text-xl font-bold mb-4">Contact Shane_r</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-gray-300 mb-2">Name</label>
+                            <input type="text" class="w-full px-4 py-3 bg-gray-800 rounded-lg input-3d text-white" placeholder="Your Name" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 mb-2">Email</label>
+                            <inputtype="email" class="w-full px-4 py-3 bg-gray-800 rounded-lg input-3d text-white" placeholder="Your Email" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-300 mb-2">Message</label>
+                            <textarea class="w-full px-4 py-3 bg-gray-800 rounded-lg input-3d text-white h-32" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button class="btn-primary w-full py-3 rounded-lg font-bold text-lg mt-4" onclick="submitContactForm()">Send Message</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="md:w-1/2">
+                <div class="bg-gray-900 rounded-lg p-6 border-2" style="border-color: var(--dark-green); transform: perspective(500px) rotateY(5deg);">
+                    <h3 class="text-xl font-bold mb-4">Connect with Shane_r</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 social-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            <span class="text-gray-300">shane_r@crypto-casino.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 social-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 005.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                            <a href="https://discord.com/invite/your-discord-id" target="_blank" class="text-gray-300 hover:underline social-icon">Join Discord Community</a>
+                        </div>
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 social-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                            </svg>
+                            <a href="https://kick.com/shane_r" target="_blank" class="text-gray-300 hover:underline social-icon">Watch on Kick</a>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <h4 class="font-bold mb-2">Business Inquiries</h4>
+                        <p class="text-gray-300">For sponsorships or collaborations, please use the form or email directly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Easter Egg Page -->
+    <section id="hall-of-fame" class="py-16 px-4 md:px-8 max-w-6xl mx-auto hidden">
+        <h2 class="text-3xl font-bold mb-8 text-center">Shane_r's Hall of Fame</h2>
+        <div class="flex flex-col items-center">
+            <div class="trophy mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--white);">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 7.714 15.614 12.86 18.286 20 12 15.857 5.714 20 8.286 12.86 3 7.714 8.714 5.857z" />
+                </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-3d">Welcome to the VIP Lounge!</h3>
+            <p class="text-gray-300 mb-6 text-center">Congratulations on finding Shane_r's secret Hall of Fame! Enjoy exclusive content and rewards.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="card-3d bg-gray-900 rounded-lg p-4 border-2" style="border-color: var(--bright-green);">
+                    <h4 class="font-bold mb-2">Top Win</h4>
+                    <p class="text-gray-300">$10,000 Slot Jackpot - June 2023</p>
+                </div>
+                <div class="card-3d bg-gray-900 rounded-lg p-4 border-2" style="border-color: var(--bright-green);">
+                    <h4 class="font-bold mb-2">Fan of the Month</h4>
+                    <p class="text-gray-300">@CryptoKing - July 2023</p>
+                </div>
+                <div class="card-3d bg-gray-900 rounded-lg p-4 border-2" style="border-color: var(--bright-green);">
+                    <h4 class="font-bold mb-2">Exclusive Strategy</h4>
+                    <p class="text-gray-300">Unlock Shane_r's secret betting system</p>
+                </div>
+            </div>
+            <button class="btn-primary mt-6 px-6 py-3 rounded-lg font-bold" onclick="triggerConfetti()">Claim Your Reward!</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-8 px-4 md:px-8 wave-bg">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0">
+                <h3 class="text-xl font-bold mb-2" style="color: var(--bright-green); text-shadow: 2px 2px 4px var(--dark-green);">Shane_r</h3>
+                <p class="text-gray-300">Your Crypto Casino & Streaming Hub</p>
+            </div>
+            <div class="flex space-x-6 mb-6 md:mb-0">
+                <a href="https://kick.com/shane_r" target="_blank" class="social-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                </a>
+                <a href="https://discord.com/invite/your-discord-id" target="_blank" class="social-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 005.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </a>
+                <a href="https://x.com/shane_r" target="_blank" class="social-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+                    </svg>
+                </a>
+            </div>
+            <div class="text-center md:text-right">
+                <p class="text-gray-300">&copy; 2025 Shane_r. All rights reserved.</p>
+                <div class="flex justify-center md:justify-end space-x-4 mt-2">
+                    <a href="#privacy" class="text-gray-300 hover:underline">Privacy Policy</a>
+                    <a href="#terms" class="text-gray-300 hover:underline">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Loader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loading').style.display = 'none';
+                triggerConfetti(); // Surprise confetti on load
+            }, 2000);
+        });
+
+        // Swiper Initialization
+        const swipers = document.querySelectorAll('.swiper-container');
+        swipers.forEach(swiper => {
+            new Swiper(swiper, {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                pagination: { el: '.swiper-pagination', clickable: true },
+                breakpoints: {
+                    768: { slidesPerView: 2 },
+                    1024: { slidesPerView: 3 }
+                }
+            });
+        });
+
+        // 3D Casino Chip Animation
+        function initCasinoChip() {
+            const canvas = document.getElementById('casino-chip');
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+            renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+
+            const geometry = new THREE.CylinderGeometry(2, 2, 0.5, 32);
+            const material = new THREE.MeshPhongMaterial({ color: 0x0a6e10, shininess: 100 });
+            const chip = new THREE.Mesh(geometry, material);
+            scene.add(chip);
+
+            const light = new THREE.PointLight(0xffffff, 1, 100);
+            light.position.set(5, 5, 5);
+            scene.add(light);
+            scene.add(new THREE.AmbientLight(0x404040));
+
+            camera.position.z = 5;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                chip.rotation.y += 0.02;
+                chip.rotation.x += 0.01;
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            window.addEventListener('resize', () => {
+                renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+                camera.aspect = canvas.clientWidth / canvas.clientHeight;
+                camera.updateProjectionMatrix();
+            });
+        }
+
+        // 3D Slot Machine Animation (Placeholder)
+        function initSlotMachine() {
+            const canvas = document.getElementById('slot-machine');
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+            renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+
+            const geometry = new THREE.BoxGeometry(3, 4, 1);
+            const material = new THREE.MeshPhongMaterial({ color: 0x0faf1c, shininess: 100 });
+            const slot = new THREE.Mesh(geometry, material);
+            scene.add(slot);
+
+            const light = new THREE.PointLight(0xffffff, 1, 100);
+            light.position.set(5, 5, 5);
+            scene.add(light);
+            scene.add(new THREE.AmbientLight(0x404040));
+
+            camera.position.z = 5;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                slot.rotation.y += 0.01;
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            window.addEventListener('resize', () => {
+                renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+                camera.aspect = canvas.clientWidth / canvas.clientHeight;
+                camera.updateProjectionMatrix();
+            });
+        }
+
+        // Confetti Effect
+        function triggerConfetti() {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#0faf1c', '#0a6e10', '#ffffff']
+            });
+        }
+
+        // Affiliate Code Copy
+        function copyAffiliateCode() {
+            const code = document.getElementById('affiliate-code').value;
+            navigator.clipboard.writeText(code).then(() => {
+                alert('Affiliate code copied: ' + code);
+                triggerConfetti();
+            });
+            window.open('https://bc.game/shane_r', '_blank');
+        }
+
+        // Contact Form Submission
+        function submitContactForm() {
+            const name = document.querySelector('input[placeholder="Your Name"]').value;
+            const email = document.querySelector('input[placeholder="Your Email"]').value;
+            const message = document.querySelector('textarea[placeholder="Your Message"]').value;
+            if (name && email && message) {
+                alert('Message sent! Shane_r will get back to you soon.');
+                triggerConfetti();
+                // Reset form
+                document.querySelector('input[placeholder="Your Name"]').value = '';
+                document.querySelector('input[placeholder="Your Email"]').value = '';
+                document.querySelector('textarea[placeholder="Your Message"]').value = '';
+            } else {
+                alert('Please fill out all fields.');
+            }
+        }
+
+        // Countdown Timer for Giveaway
+        function startCountdown() {
+            const countdownElement = document.getElementById('countdown');
+            const endDate = new Date();
+            endDate.setDate(endDate.getDate() + 7); // 1 week from now
+            setInterval(() => {
+                const now = new Date();
+                const timeLeft = endDate - now;
+                if (timeLeft <= 0) {
+                    countdownElement.textContent = 'Giveaway Ended!';
+                    return;
+                }
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }, 1000);
+        }
+
+        // GSAP Animations
+        gsap.from('.hero-text', { opacity: 0, y: 50, duration: 1, delay: 2.5 });
+        gsap.from('.btn-primary', { scale: 0.8, opacity: 0, duration: 0.5, stagger: 0.2, delay: 3 });
+        gsap.from('.card-3d', { y: 100, opacity: 0, duration: 1, stagger: 0.3, scrollTrigger: { trigger: '.card-3d', start: 'top 80%' } });
+        gsap.from('.flip-card', { rotationY: 180, opacity: 0, duration: 1, stagger: 0.3, scrollTrigger: { trigger: '.flip-card', start: 'top 80%' } });
+
+        // Initialize Animations
+        initCasinoChip();
+        initSlotMachine();
+        startCountdown();
+
+        // Smooth Scroll for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Easter Egg Toggle
+        document.querySelector('a[href="/shane_r_hall_of_fame"]').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('hall-of-fame').classList.toggle('hidden');
+            triggerConfetti();
+        });
+    </script>
+</body>
+</html>

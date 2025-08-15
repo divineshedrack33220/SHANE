@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join SH4NE_R's exclusive crypto gaming and streaming events">
+    <meta name="og:title" content="SH4NE_R's Events">
+    <meta name="og:description" content="Discover upcoming events hosted by SH4NE_R on BC.Game and Kick">
+    <title>SH4NE_R - Events</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --dark-green: #0a6e10;
+            --bright-green: #0faf1c;
+            --light-gray: #E0E0E0;
+            --red: #EF4444;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+            touch-action: manipulation;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .subheading {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .text-3d {
+            text-shadow: 2px 2px 4px var(--dark-green);
+        }
+        
+        .btn-primary {
+            background-color: var(--bright-green);
+            border: 2px solid var(--dark-green);
+            box-shadow: 0 0 10px var(--bright-green);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.05);
+        }
+        
+        .btn-secondary {
+            background-color: var(--dark-green);
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            transform: rotateY(5deg);
+        }
+        
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+            width: 100%;
+        }
+        
+        .card-3d:hover {
+            transform: perspective(500px) rotateY(10deg);
+        }
+        
+        .nav-item {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item:hover {
+            transform: translateZ(5px);
+            border-bottom: 2px solid var(--bright-green);
+        }
+        
+        .nav-item.hall-of-fame {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--bright-green);
+        }
+        
+        .nav-item.hall-of-fame:hover {
+            text-shadow: 0 0 5px var(--bright-green);
+        }
+        
+        .mobile-nav-item {
+            transition: all 0.2s ease;
+        }
+        
+        .mobile-nav-item:hover {
+            transform: scale(1.1);
+        }
+        
+        .wave-bg {
+            position: relative;
+        }
+        
+        .wave-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path fill="%230faf1c" d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.21,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25"/><path fill="%230faf1c" d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5"/><path fill="%230faf1c" d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"/></svg>');
+            background-size: cover;
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateZ(10px);
+        }
+        
+        .input-3d {
+            box-shadow: inset 0 0 5px var(--bright-green);
+            transition: all 0.3s ease;
+        }
+        
+        .input-3d:focus {
+            box-shadow: inset 0 0 10px var(--bright-green);
+        }
+        
+        .gradient-shadow {
+            animation: glow 2s ease-in-out infinite;
+        }
+        
+        @keyframes glow {
+            0% { box-shadow: 0 0 10px var(--bright-green); }
+            50% { box-shadow: 0 0 15px 5px var(--dark-green); }
+            100% { box-shadow: 0 0 10px var(--bright-green); }
+        }
+        
+        .loader {
+            width: 80px;
+            height: 80px;
+            border: 8px solid var(--dark-green);
+            border-top: 8px solid var(--bright-green);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .swiper-card {
+            width: 100%;
+        }
+        
+        .event-title {
+            overflow-wrap: break-word;
+            word-break: break-word;
+            display: -webkit-box;
+          
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .event-description {
+            overflow-wrap: break-word;
+            word-break: break-word;
+            display: -webkit-box;
+            
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .expired-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background-color: var(--red);
+            color: var(--black);
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 50;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background-color: var(--black);
+            border: 2px solid var(--bright-green);
+            border-radius: 8px;
+            padding: 1.5rem;
+            max-width: 90%;
+            width: 400px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            cursor: pointer;
+            color: var(--bright-green);
+            font-size: 1.5rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .swiper-container { display: none; }
+            #events-container { 
+                display: grid; 
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 1.5rem;
+                max-width: 100%;
+            }
+            .swiper-card { height: auto; }
+        }
+        
+        @media (min-width: 768px) {
+            .modal-content { max-width: 64rem; }
+        }
+        
+        @media (max-width: 1023px) {
+            #events-container { display: none; }
+            .swiper-container { display: block; }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-text { text-shadow: 1px 1px 2px var(--dark-green); }
+            .mobile-btn { width: 100%; height: 48px; font-size: 1rem; }
+            .mobile-card { width: 100%; max-width: 90%; margin: 0 auto; }
+            nav.top-nav { height: 68px; padding: 0 8px; }
+            .nav-item.hall-of-fame { font-size: 1rem; }
+            .mobile-nav-item svg { height: 1.5rem; width: 1.5rem; }
+            .mobile-nav-item span { font-size: 0.75rem; }
+            .swiper-card { height: 14rem; }
+            .modal-content { width: 90%; max-width: 300px; }
+        }
+        
+        @media (max-width: 400px) {
+            .mobile-nav-item svg { height: 1.25rem; width: 1.25rem; }
+            .mobile-nav-item span { font-size: 0.65rem; }
+            .card-3d, .swiper-card { height: 14rem; }
+        }
+        
+        .noscript-message {
+            display: none;
+            text-align: center;
+            color: var(--bright-green);
+            font-size: 1.2rem;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <noscript>
+        <div class="noscript-message">
+            You need to enable JavaScript to run this app.
+        </div>
+    </noscript>
+    <div id="loading" class="fixed inset-0 bg-black z-[60] flex items-center justify-center">
+        <img src="img/logo.png" alt="SH4NE_R Logo" class="max-w-[150px] sm:max-w-[200px] gradient-shadow">
+    </div>
+
+    <div id="no-events-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="document.getElementById('no-events-modal').style.display='none'">&times;</span>
+            <img src="img/Fist Bump.gif" alt="SH4NE_R Logo" class="mx-auto mb-4 max-w-[150px]">
+            <p class="text-gray-300 text-sm md:text-base mb-4">No new events at the moment! Join our community for exclusive updates.</p>
+            <a href="community.html" class="btn-primary px-6 py-3 rounded-lg font-bold text-sm md:text-base mobile-btn">Join Our Community</a>
+        </div>
+    </div>
+
+    <nav class="top-nav flex items-center justify-between px-4 sm:px-6 py-2 bg-black bg-opacity-95 backdrop-blur-sm sticky top-0 z-40 shadow-lg" style="box-shadow: 0 4px 10px var(--dark-green); height: 68px;">
+        <img src="img/logo.png" alt="SH4NE_R Logo" class="h-[60px] w-auto object-contain">
+        <div class="flex flex-wrap gap-2 sm:gap-4">
+            <a href="index.html" class="nav-item text-white text-sm sm:text-base hidden md:block" aria-label="Home">Home</a>
+            <a href="stream.html" class="nav-item text-white text-sm sm:text-base hidden md:block" aria-label="Stream">Stream</a>
+            <a href="affiliate.html" class="nav-item text-white text-sm sm:text-base hidden md:block" aria-label="Affiliate">Affiliate</a>
+            <a href="events.html" class="nav-item text-white text-sm sm:text-base hidden md:block" aria-label="Blog">Event</a>
+            <a href="community.html" class="nav-item text-white text-sm sm:text-base hidden md:block" aria-label="Community">Community</a>
+            <a href="hall-of-fame.html" class="nav-item hall-of-fame" aria-label="Hall of Fame">
+                <img src="img/bc cup.png" alt="Hall of Fame" class="h-[40px] w-auto object-contain">
+            </a>
+        </div>
+    </nav>
+
+    <nav class="md:hidden flex justify-between items-center fixed bottom-0 left-0 right-0 bg-black/90 border-t border-gray-700 z-50 py-2 px-4 shadow-lg" style="height: 60px;">
+        <a href="index.html" class="mobile-nav-item flex flex-col items-center flex-1" aria-label="Home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            <span class="text-xs text-gray-300">Home</span>
+        </a>
+        <a href="stream.html" class="mobile-nav-item flex flex-col items-center flex-1" aria-label="Stream">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            <span class="text-xs text-gray-300">Stream</span>
+        </a>
+        <a href="affiliate.html" class="mobile-nav-item flex flex-col items-center flex-1" aria-label="Affiliate">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+            </svg>
+            <span class="text-xs text-gray-300">Affiliate</span>
+        </a>
+        <a href="events.html" class="mobile-nav-item flex flex-col items-center flex-1" aria-label="Blog">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+            </svg>
+            <span class="text-xs text-gray-300">Event</span>
+        </a>
+        <a href="community.html" class="mobile-nav-item flex flex-col items-center flex-1" aria-label="Community">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 005.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+            <span class="text-xs text-gray-300">Community</span>
+        </a>
+    </nav>
+
+    <section id="events" class="py-8 md:py-16 px-4 md:px-8 max-w-full md:max-w-6xl mx-auto mt-8 md:mt-16 overflow-hidden">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center text-3d">SH4NE_R's Events</h2>
+        
+        <div class="flex flex-col md:flex-row gap-4 md:gap-6">
+            <div class="flex-1 mx-auto md:max-w-2xl">
+                <div class="bg-gray-900 rounded-lg p-4 md:p-6 border-2 card-3d mobile-card" style="border-color: var(--bright-green);">
+                    <h3 class="text-lg md:text-xl font-bold mb-4">Upcoming Events</h3>
+                    <p class="text-gray-300 text-sm md:text-base mb-4 event-description">Join SH4NE_R for exclusive crypto gaming and streaming events on BC.Game and Kick. Check out the latest events below!</p>
+                    <a href="#events-list" class="btn-primary px-6 py-3 rounded-lg font-bold text-sm md:text-base mobile-btn">View All Events</a>
+                </div>
+            </div>
+            
+            <div class="md:w-80">
+                <div class="bg-gray-900 rounded-lg p-4 md:p-6 border-2 card-3d mobile-card" style="border-color: var(--dark-green);">
+                    <h3 class="text-lg md:text-xl font-bold mb-4">Why Attend?</h3>
+                    <ul class="space-y-2 text-gray-300 text-sm md:text-base">
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Exclusive giveaways
+                        </li>
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Live streaming sessions
+                        </li>
+                        <li class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                            Community rewards
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div id="events-list" class="mt-8">
+            <h3 class="text-xl md:text-2xl font-bold mb-4 text-center">Event Schedule</h3>
+            <div class="swiper-container">
+                <div class="swiper-wrapper" id="events-container-swiper">
+                    <!-- Swiper events will be populated here -->
+                </div>
+            </div>
+            <div id="events-container" class="hidden lg:grid lg:grid-cols-4 lg:gap-6">
+                <!-- Grid events will be populated here -->
+            </div>
+        </div>
+    </section>
+
+   <footer class="bg-black py-6 md:py-8 px-4 md:px-8 wave-bg">
+        <div class="max-w-full md:max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
+            <div class="mb-4 md:mb-0 text-center md:text-left">
+                <h3 class="text-lg md:text-xl font-bold mb-2" style="color: var(--bright-green); text-shadow: 2px 2px 4px var(--dark-green);">SH4NE_R</h3>
+                <p class="text-gray-300 text-sm md:text-base">Your Crypto Casino & Streaming Hub</p>
+            </div>
+            <div class="flex space-x-4 md:space-x-6 mb-4 md:mb-0">
+                <a href="https://kick.com/sh4ne_r" target="_blank" class="social-icon" aria-label="Kick">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                </a>
+                <a href="https://discord.com/invite/your-discord-id" target="_blank" class="social-icon" aria-label="Discord">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 005.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </a>
+                <a href="https://x.com/sh4ne_r?t=__QjwcPnji_WD--9hzs77g&s=08" target="_blank" class="social-icon" aria-label="X">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+                    </svg>
+                </a>
+            </div>
+            <div class="text-center md:text-right">
+                <p class="text-gray-300 text-sm md:text-base">&copy; 2025 SH4NE_R. All rights reserved.</p>
+                <div class="flex justify-center md:justify-end space-x-4 mt-2">
+                    <a href="#privacy" class="text-gray-300 hover:underline text-sm md:text-base">Privacy Policy</a>
+                    <a href="#terms" class="text-gray-300 hover:underline text-sm md:text-base">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        console.log('events.html loaded');
+        window.onerror = function (msg, url, lineNo, columnNo, error) {
+            console.error('Global error:', msg, 'at', url, lineNo, columnNo, error);
+            return false;
+        };
+
+        async function loadEvents() {
+            try {
+                const response = await fetch('/events');
+                if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+                let events = await response.json();
+                const currentDate = new Date('2025-08-15T04:51:00+01:00'); // Current date: August 15, 2025, 04:51 AM WAT
+                const swiperContainer = document.getElementById('events-container-swiper');
+                const gridContainer = document.getElementById('events-container');
+                const noEventsModal = document.getElementById('no-events-modal');
+
+                // Sort events by date in descending order (newest first)
+                events = events.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                // Limit to 12 events
+                events = events.slice(0, 12);
+
+                // Check if there are no new (non-expired) events
+                const hasNewEvents = events.length > 0 && events.some(event => new Date(event.date) >= currentDate);
+
+                if (!hasNewEvents) {
+                    noEventsModal.style.display = 'flex';
+                }
+
+                // Populate Swiper for mobile/tablet
+                swiperContainer.innerHTML = events.length > 0 ? events.map(event => {
+                    const eventDate = new Date(event.date);
+                    const isExpired = eventDate < currentDate;
+                    return `
+                        <div class="swiper-slide swiper-card">
+                            <div class="card-3d bg-gray-900 rounded-lg p-4 border-2 relative" style="border-color: ${isExpired ? 'var(--red)' : 'var(--bright-green)'};">
+                                ${isExpired ? '<span class="expired-badge">Expired</span>' : ''}
+                                <h4 class="text-base md:text-lg font-bold mb-2 event-title">${event.title}</h4>
+                                <p class="text-gray-300 text-sm md:text-base mb-2 event-description">${event.description}</p>
+                                <p class="text-sm text-gray-400">Date: ${eventDate.toLocaleDateString()}</p>
+                                <a href="${event.link || '#'}" class="btn-primary w-full h-12 md:w-auto md:h-auto px-4 py-2 rounded-lg mt-2 inline-block text-sm md:text-base mobile-btn" aria-label="View Event">View Event</a>
+                            </div>
+                        </div>
+                    `;
+                }).join('') : '<div class="swiper-slide swiper-card"><p class="text-center text-gray-300">No events available</p></div>';
+
+                // Populate Grid for desktop
+                gridContainer.innerHTML = events.length > 0 ? events.map(event => {
+                    const eventDate = new Date(event.date);
+                    const isExpired = eventDate < currentDate;
+                    return `
+                        <div class="card-3d bg-gray-900 rounded-lg p-4 border-2 relative" style="border-color: ${isExpired ? 'var(--red)' : 'var(--bright-green)'};">
+                            ${isExpired ? '<span class="expired-badge">Expired</span>' : ''}
+                            <h4 class="text-base md:text-lg font-bold mb-2 event-title">${event.title}</h4>
+                            <p class="text-gray-300 text-sm md:text-base mb-2 event-description">${event.description}</p>
+                            <p class="text-sm text-gray-400">Date: ${eventDate.toLocaleDateString()}</p>
+                            <a href="${event.link || '#'}" class="btn-primary w-full h-12 md:w-auto md:h-auto px-4 py-2 rounded-lg mt-2 inline-block text-sm md:text-base mobile-btn" aria-label="View Event">View Event</a>
+                        </div>
+                    `;
+                }).join('') : '<p class="text-center text-gray-300">No events available</p>';
+
+                // Initialize Swiper for mobile/tablet
+                try {
+                    new Swiper('.swiper-container', {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                        autoplay: {
+                            delay: 3000,
+                            disableOnInteraction: false
+                        },
+                        breakpoints: {
+                            768: {
+                                slidesPerView: 2,
+                                autoplay: false
+                            }
+                        }
+                    });
+                    console.log('Swiper initialized for events');
+                } catch (err) {
+                    console.error('Swiper error:', err);
+                }
+            } catch (err) {
+                console.error('Error loading events:', err);
+                document.getElementById('events-container-swiper').innerHTML = '<div class="swiper-slide swiper-card"><p class="text-center text-red-500">Failed to load events</p></div>';
+                document.getElementById('events-container').innerHTML = '<p class="text-center text-red-500">Failed to load events</p>';
+                document.getElementById('no-events-modal').style.display = 'flex';
+            }
+        }
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loading = document.getElementById('loading');
+                if (loading) {
+                    loading.style.display = 'none';
+                }
+                loadEvents();
+            }, 1500);
+        });
+    </script>
+</body>
+</html>

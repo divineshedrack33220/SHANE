@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SH4NE_R's BC.Game Affiliate and Kick Streaming Hub">
+    <meta name="og:title" content="SH4NE_R's Crypto Casino Adventure">
+    <meta name="og:description" content="Join SH4NE_R on BC.Game with his exclusive affiliate code and watch live on Kick!">
+    <title>SH4NE_R - BC.Game Affiliate & Kick Streamer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="scripts.js"></script>
+    <style>
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --dark-green: #0a6e10;
+            --bright-green: #0faf1c;
+            --light-gray: #E0E0E0;
+            --gold-light: #FFD700;
+            --gold-dark: #FFA500;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+            touch-action: manipulation;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .subheading {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .text-3d {
+            text-shadow: 2px 2px 4px var(--dark-green);
+        }
+        
+        .btn-primary {
+            background-color: var(--bright-green);
+            border: 2px solid var(--dark-green);
+            box-shadow: 0 0 10px var(--bright-green);
+            transition: all 0.3s ease;
+            display: block;
+            text-align: center;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            padding: 0.5rem 1rem;
+            margin: 0.5rem auto;
+            width: 80vw;
+        }
+        
+        .btn-primary:hover {
+            transform: perspective(500px) translateZ(10px);
+        }
+        
+        .btn-secondary {
+            background-color: var(--dark-green);
+            color: var(--white);
+            transition: all 0.3s ease;
+            display: block;
+            text-align: center;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            padding: 0.5rem 1rem;
+            margin: 0.5rem auto;
+            width: 80vw;
+        }
+        
+        .btn-secondary:hover {
+            transform: rotateY(5deg);
+        }
+        
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+            min-height: 20rem;
+            display: flex;
+            flex-direction: column;
+            opacity: 1 !important;
+            visibility: visible !important;
+            width: 100%;
+        }
+        
+        .card-3d:hover {
+            transform: perspective(500px) rotateY(10deg);
+        }
+        
+        .flip-card {
+            perspective: 1000px;
+            position: relative;
+            height: 16rem;
+        }
+        
+        .flip-card-inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s ease-in-out;
+            transform-style: preserve-3d;
+        }
+        
+        .flip-card:hover .flip-card-inner,
+        .flip-card.clicked .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+        
+        .flip-card-back {
+            transform: rotateY(180deg);
+            background-color: var(--dark-green);
+        }
+        
+        .flip-card-front img {
+            width: 100%;
+            height: 10rem;
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .flip-card-front img {
+                height: 12rem;
+            }
+        }
+        
+        .nav-item {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item:hover {
+            transform: translateZ(5px);
+            border-bottom: 2px solid var(--bright-green);
+        }
+        
+        .nav-item.hall-of-fame {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-item.hall-of-fame img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        .nav-item.hall-of-fame:hover img {
+            filter: drop-shadow(0 0 5px var(--bright-green));
+        }
+        
+        .mobile-nav-item {
+            transition: all 0.2s ease;
+        }
+        
+        .mobile-nav-item:hover {
+            transform: scale(1.1);
+        }
+        
+        .wave-bg {
+            position: relative;
+        }
+        
+        .wave-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path fill="%230faf1c" d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.21,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25"/><path fill="%230faf1c" d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5"/><path fill="%230faf1c" d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"/></svg>');
+            background-size: cover;
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateZ(10px);
+        }
+        
+        .input-3d {
+            box-shadow: inset 0 0 5px var(--bright-green);
+            transition: all 0.3s ease;
+        }
+        
+        .input-3d:focus {
+            box-shadow: inset 0 0 10px var(--bright-green);
+        }
+        
+        .gradient-shadow {
+            animation: glow 2s ease-in-out infinite;
+        }
+        
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 10px var(--bright-green);
+            }
+            50% {
+                box-shadow: 0 0 15px 5px var(--dark-green);
+            }
+            100% {
+                box-shadow: 0 0 10px var(--bright-green);
+            }
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 70;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background-color: var(--black);
+            border: 2px solid var(--bright-green);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            max-width: 90%;
+            width: 100%;
+            max-height: 80vh;
+            overflow: auto;
+        }
+        
+        .modal iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+        }
+        
+        .close-modal {
+            background-color: var(--dark-green);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            margin-top: 1rem;
+        }
+        
+        .kick-link {
+            background-color: var(--bright-green);
+            color: var(--black);
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            margin-top: 1rem;
+        }
+        
+        .video-container {
+            position: relative;
+            cursor: pointer;
+            min-height: 20rem;
+            display: flex;
+            flex-direction: column;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        
+        .video-container img {
+            width: 100%;
+            height: 10rem;
+            object-fit: cover;
+            background-color: #1a1a1a;
+        }
+        
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.3s ease;
+            opacity: 1 !important;
+        }
+        
+        .play-button:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        .swiper-container {
+            position: relative;
+            width: 100%;
+            margin: 0 auto;
+            overflow-x: hidden;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .swiper-container::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .swiper {
+            width: 100%;
+        }
+        
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw; /* Full viewport width on mobile */
+            flex-shrink: 0;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        
+        .swiper-slide .card-3d,
+        .swiper-slide .flip-card {
+            width: 100%;
+            max-width: calc(100vw - 24px); /* Account for padding */
+        }
+        
+        /* Text truncation styles */
+        .truncate-text {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-height: 4.5rem; /* Approx 3 lines at 1.5rem line height */
+        }
+        
+        /* News ticker styles */
+        .news-ticker {
+            background-color: var(--dark-green);
+            border: 2px solid var(--bright-green);
+            box-shadow: 0 0 10px var(--bright-green);
+            height: 3rem; /* Fixed height for consistency */
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            width: 100%; /* Full container width */
+            margin-top: 3rem; /* Space for popout image */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .ticker-logo {
+            height: 2rem; /* 32px mobile */
+            width: auto;
+            flex-shrink: 0;
+            margin: 0 1rem;
+        }
+        
+        .ticker-content {
+            flex-grow: 1;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+        
+        .ticker-items {
+            display: inline-block;
+            white-space: nowrap;
+            will-change: transform; /* Optimize animation */
+        }
+        
+        .ticker-item {
+            display: inline-block;
+            padding: 0 2rem; /* More spacing to prevent overlap */
+            font-size: 0.875rem; /* text-sm */
+            color: var(--white);
+            line-height: 3rem; /* Match container height */
+            min-width: fit-content; /* Ensure full text width */
+        }
+        
+        .ticker-item:not(:last-child)::after {
+            content: "•";
+            margin: 0 1.5rem; /* More spacing for separator */
+            color: var(--bright-green);
+        }
+        
+        .ticker-content:hover .ticker-items,
+        .ticker-content:focus .ticker-items {
+            animation-play-state: paused;
+        }
+        
+        .ticker-item {
+            white-space: nowrap; /* Ensure full text visibility */
+            overflow: visible; /* Prevent clipping */
+        }
+        
+        /* Hero section */
+        #home {
+            position: relative;
+            height: calc(65vh + 30px); /* Fixed height for mobile */
+            display: flex;
+            flex-direction: column; /* Stack children vertically */
+            align-items: center;
+            justify-content: flex-start; /* Start content from top */
+            background: black; /* Ensure dark background */
+            padding-bottom: 0;
+            z-index: 1; /* Above other sections */
+        }
+        
+        /* Hero text container */
+        .hero-text-container {
+            position: absolute;
+            top: 68px; /* Below nav */
+            left: 0;
+            right: 0;
+            z-index: 10; /* Above image */
+            text-align: center; /* Center text */
+        }
+        
+        /* Hero text styles */
+        .hero-text {
+            position: absolute;
+            top: 0.5rem; /* Space from container top */
+            left: 50%;
+            transform: translateX(-50%); /* Center horizontally */
+            display: inline-block; /* Fit content width */
+            max-width: 95vw; /* More space to prevent overflow */
+            background: rgba(0, 0, 0, 0.8); /* Contrast */
+            padding: 0.5rem 1rem; /* More padding for clarity */
+            border-radius: 0.5rem;
+            text-shadow: 2px 2px 4px var(--dark-green);
+            text-align: center; /* Center text */
+            font-size: 4vw; /* Smaller for mobile */
+            font-weight: 900; /* Thicker text */
+            white-space: nowrap; /* Prevent wrapping */
+            overflow: hidden; /* Hide overflow */
+            text-overflow: clip; /* No ellipsis */
+        }
+        
+        /* Popout image container */
+        .popup-container {
+            position: absolute;
+            top: 100px; /* Below text and nav (mobile) */
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: calc(100% - 100px); /* Adjust for text and nav */
+            display: flex;
+            flex-direction: column; /* Stack image and buttons */
+            justify-content: flex-start; /* Start below text */
+            align-items: center; /* Center horizontally */
+            padding-top: 0.75rem; /* Space below text */
+            z-index: 5; /* Above background */
+        }
+        
+        .popup-image {
+            width: auto;
+            height: auto;
+            max-height: calc(50vh - 100px - 0.75rem - 2.5rem + 30px); /* Mobile, adjusted for text, padding, buttons */
+            max-width: 80vw; /* Full width for image */
+            object-position: center;
+            margin: 0 auto; /* Center horizontally */
+            z-index: 0; /* Behind text */
+        }
+        
+        .popup-image::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, var(--gold-light), var(--gold-dark));
+            opacity: 0.3; /* Reduced for dark background visibility */
+            z-index: -1;
+            animation: pulse-gold 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-gold {
+            0% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.05);
+            }
+            100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+        }
+        
+        @media (min-width: 768px) {
+            #home {
+                height: calc(55vh + 30px); /* Fixed height for desktop */
+            }
+            .modal-content {
+                max-width: 64rem;
+            }
+            .swiper-container {
+                width: 90%;
+                max-width: 80rem;
+            }
+            .swiper-slide {
+                width: 24rem; /* Fixed width for desktop */
+            }
+            .swiper-slide .card-3d,
+            .swiper-slide .flip-card {
+                max-width: 22rem; /* Fixed max-width for desktop */
+            }
+            .truncate-text {
+                max-height: 4.5rem; /* Consistent height on desktop */
+            }
+            .news-ticker {
+                height: 3.5rem;
+                margin-top: 3.5rem;
+                max-width: 80rem; /* Match swiper-container */
+            }
+            .ticker-logo {
+                height: 2.5rem;
+            }
+            .ticker-item {
+                font-size: 1rem; /* text-base */
+                line-height: 3.5rem;
+                padding: 0 3rem; /* More spacing */
+            }
+            .popup-container {
+                top: 110px; /* Below text (desktop) */
+                height: calc(100% - 110px); /* Adjust for text height */
+                padding-top: 1.5rem; /* Space below text */
+            }
+            .popup-image {
+                max-height: calc(60vh - 110px - 1.5rem - 3rem + 30px); /* Desktop, adjusted for text, padding, buttons */
+                max-width: 80vw; /* Full width */
+                margin: 0 auto; /* Center horizontally */
+            }
+            .hero-text {
+                top: 1rem; /* Higher on desktop */
+                font-size: 2rem; /* Larger for sm */
+                font-weight: 900; /* Thicker text */
+                padding: 0.75rem 1.5rem; /* Larger padding */
+                margin-bottom: 0.75rem; /* Bottom margin for desktop */
+            }
+            .btn-primary, .btn-secondary {
+                width: 20vw; /* Narrower for desktop */
+                padding: 0.75rem 1.5rem; /* Larger padding */
+                font-size: 1rem; /* Larger text */
+                margin: 0.75rem auto; /* More spacing */
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .hero-text {
+                font-size: 2.5rem; /* Larger for md */
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .main-content {
+                margin-bottom: 60px; /* Gap for mobile nav */
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .mobile-nav-item svg {
+                height: 1.25rem;
+                width: 1.25rem;
+            }
+            .mobile-nav-item span {
+                font-size: 0.65rem;
+            }
+            .flip-card {
+                height: 14rem;
+            }
+            .truncate-text {
+                max-height: 4.5rem;
+            }
+            .ticker-item {
+                font-size: 0.7rem; /* Smaller for small screens */
+                padding: 0 2rem; /* Consistent spacing */
+                letter-spacing: -0.025rem; /* Condense text */
+                line-height: 3rem;
+            }
+            .popup-container {
+                top: 110px; /* Below text and nav (small screens) */
+                height: calc(100% - 110px); /* Adjust for text height */
+                padding-top: 0.5rem; /* Space below text */
+            }
+            .popup-image {
+                max-height: calc(40vh - 110px - 0.5rem - 2rem + 30px); /* Small screens, adjusted for text, padding, buttons */
+                max-width: 80vw; /* Full width */
+                margin: 0 auto; /* Center horizontally */
+            }
+            .hero-text {
+                top: 0.25rem; /* Avoid nav overlap */
+                font-size: 0.75rem; /* Smaller for small screens */
+                font-weight: 900; /* Thicker text */
+                padding: 0.4rem 0.8rem; /* Adjusted padding */
+                margin-bottom: 0.5rem; /* Bottom margin for spacing */
+                max-width: 95vw; /* More space */
+                white-space: nowrap; /* Single line */
+                overflow: hidden; /* Hide overflow */
+                text-overflow: clip; /* No ellipsis */
+                letter-spacing: -0.025rem; /* Condense text */
+            }
+            .btn-primary, .btn-secondary {
+                font-size: 0.75rem; /* Smaller text */
+                padding: 0.4rem 0.8rem; /* Smaller padding */
+                margin: 0.25rem auto; /* Less spacing */
+                width: 80vw; /* Match image */
+            }
+        }
+        
+        .confetti {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(45deg, var(--gold-light), var(--gold-dark));
+            opacity: 0;
+            animation: confetti-fall 4s ease-in-out forwards;
+            z-index: 1000;
+        }
+        
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div id="loading" class="fixed inset-0 bg-black z-[60] flex items-center justify-center">
+        <img src="img/logo.png" alt="SH4NE_R Logo" class="max-w-[150px] sm:max-w-[200px] gradient-shadow">
+    </div>
+
+    <nav class="top-nav flex items-center justify-between px-4 sm:px-6 py-2 bg-black bg-opacity-95 backdrop-blur-sm sticky top-0 z-40 shadow-lg" style="box-shadow: 0 4px 10px var(--dark-green); height: 68px;">
+        <img src="img/logo.png" alt="SH4NE_R Logo" class="h-[60px] w-auto object-contain">
+        <div class="flex flex-wrap gap-2 sm:gap-4">
+            <a href="index.html" class="nav-item text-white text-sm sm:text-base hidden md:block" aria-label="Home">Home</a>
+            <a href="stream.html" class="nav-item text-white text-sm sm:text-base hidden md:block" aria-label="Stream">Stream</a>
+            <a href="affiliate.html" class="nav-item text-white text-sm sm:text-base hidden md:block" aria-label="Affiliate">Affiliate</a>
+            <a href="events.html" class="nav-item text-white text-sm sm:text-base hidden md:block" aria-label="Blog">Event</a>
+            <a href="community.html" class="nav-item text-white text-sm sm:text-base hidden md:block" aria-label="Community">Community</a>
+            <a href="hall-of-fame.html" class="nav-item hall-of-fame" aria-label="Hall of Fame">
+                <img src="img/bc cup.png" alt="Hall of Fame" class="h-[40px] w-auto object-contain">
+            </a>
+        </div>
+    </nav>
+
+    <nav class="md:hidden flex justify-between items-center fixed bottom-0 left-0 right-0 bg-black/90 border-t border-gray-700 z-50 py-2 px-4 shadow-lg" style="height: 60px;">
+        <a href="index.html" class="mobile-nav-item flex flex-col items-center flex-1" aria-label="Home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            <span class="text-xs text-gray-300">Home</span>
+        </a>
+        <a href="stream.html" class="mobile-nav-item flex flex-col items-center flex-1" aria-label="Stream">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            <span class="text-xs text-gray-300">Stream</span>
+        </a>
+        <a href="affiliate.html" class="mobile-nav-item flex flex-col items-center flex-1" aria-label="Affiliate">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+            </svg>
+            <span class="text-xs text-gray-300">Affiliate</span>
+        </a>
+        <a href="events.html" class="mobile-nav-item flex flex-col items-center flex-1" aria-label="Blog">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+            </svg>
+            <span class="text-xs text-gray-300">Event</span>
+        </a>
+        <a href="community.html" class="mobile-nav-item flex flex-col items-center flex-1" aria-label="Community">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 005.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+            <span class="text-xs text-gray-300">Community</span>
+        </a>
+    </nav>
+
+    <section id="home" class="relative h-[calc(65vh + 30px)] flex flex-col items-center justify-start bg-black pb-0 z-1">
+        <div class="hero-text-container">
+            <h1 class="hero-text text-3d">Join SH4NE_R's Crypto Casino Adventure!</h1>
+        </div>
+        <div class="popup-container">
+            <img src="img/shane 4.png" alt="BC Popout Image" class="popup-image" loading="lazy">
+            <a href="https://bcgame.top/i-sh4ner-nr" class="btn-secondary" role="button" aria-label="Watch SH4NE_R on Kick" tabindex="0">SH4NE_R_CODE</a>
+        </div>
+    </section>
+
+    <section class="main-content py-8 md:py-16 px-4 md:px-8 max-w-full mx-auto overflow-hidden pb-4 md:pb-8">
+        <!-- News Ticker Section -->
+        <section class="news-ticker mb-6 md:mb-8" id="news-ticker" aria-live="polite">
+            <img src="img/Trophy.gif" alt="BC Logo" class="ticker-logo">
+            <div class="ticker-content">
+                <div class="ticker-items" id="ticker-items">
+                    <!-- Ticker items will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+
+        <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-center">Latest Highlights</h2>
+        <a href="https://kick.com/sh4ne_r/videos" target="_blank" class="btn-secondary px-4 py-2 rounded-lg font-bold text-sm md:text-base mx-auto block w-fit mb-6 md:mb-8">View All</a>
+        
+        <div class="swiper-container" id="highlights-swiper" role="region" aria-label="Latest Highlights Carousel">
+            <div class="swiper-wrapper" id="highlights-container">
+                <!-- Highlights will be dynamically inserted here -->
+            </div>
+        </div>
+        
+        <div id="video-modal" class="modal">
+            <div class="modal-content">
+                <iframe src="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                <div class="flex justify-between mt-4">
+                    <button class="close-modal" onclick="closeModal()">Close</button>
+                    <a href="" class="kick-link" target="_blank">Watch on Kick</a>
+                </div>
+            </div>
+        </div>
+        
+        <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-8 mt-8 md:mt-16 text-center">SH4NE_R's Latest Wins</h2>
+        <div class="swiper-container" id="wins-swiper" role="region" aria-label="Latest Wins Carousel">
+            <div class="swiper-wrapper" id="wins-container">
+                <!-- Wins will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black py-6 md:py-8 px-4 md:px-8 wave-bg">
+        <div class="max-w-full md:max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
+            <div class="mb-4 md:mb-0 text-center md:text-left">
+                <h3 class="text-lg md:text-xl font-bold mb-2" style="color: var(--bright-green); text-shadow: 2px 2px 4px var(--dark-green);">SH4NE_R</h3>
+                <p class="text-gray-300 text-sm md:text-base">Your Crypto Casino & Streaming Hub</p>
+            </div>
+            <div class="flex space-x-4 md:space-x-6 mb-4 md:mb-0">
+                <a href="https://kick.com/sh4ne_r" target="_blank" class="social-icon" aria-label="Kick">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                </a>
+                <a href="https://discord.com/invite/your-discord-id" target="_blank" class="social-icon" aria-label="Discord">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 005.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </a>
+                <a href="https://x.com/sh4ne_r?t=__QjwcPnji_WD--9hzs77g&s=08" target="_blank" class="social-icon" aria-label="X">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+                    </svg>
+                </a>
+            </div>
+            <div class="text-center md:text-right">
+                <p class="text-gray-300 text-sm md:text-base">&copy; 2025 SH4NE_R. All rights reserved.</p>
+                <div class="flex justify-center md:justify-end space-x-4 mt-2">
+                    <a href="#privacy" class="text-gray-300 hover:underline text-sm md:text-base">Privacy Policy</a>
+                    <a href="#terms" class="text-gray-300 hover:underline text-sm md:text-base">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('load', async () => {
+            console.log('Window loaded, starting initialization');
+            setTimeout(() => {
+                document.getElementById('loading').style.display = 'none';
+                triggerConfetti();
+            }, 1500);
+
+            // Initialize popout image animations
+            try {
+                // Initial bounce animation
+                gsap.fromTo('.popup-image', 
+                    { y: '100%' }, // Start below ground
+                    { 
+                        y: '0%', 
+                        duration: 1.5, 
+                        ease: 'bounce.out', 
+                        delay: 1, 
+                        onComplete: () => {
+                            console.log('Popout image bounce animation completed');
+                            // Start up-and-down animation
+                            gsap.to('.popup-image', {
+                                y: '-10px',
+                                duration: 2,
+                                ease: 'power1.inOut',
+                                yoyo: true,
+                                repeat: -1
+                            });
+                        }
+                    }
+                );
+            } catch (err) {
+                console.error('Error animating popout image:', err);
+            }
+
+            // Initialize news ticker
+            function initNewsTicker() {
+                const tickerItems = [
+                    'BC Games Grand Finals – August 20th',
+                    'Win big prizes in the BC Summer Cup',
+                    'Join SH4NE_R’s exclusive BC.Game tournaments',
+                    'New slots added to BC.Game – Play now!',
+                    'BC Games Grand Finals with exclusive rewards – August 20th, 2025'
+                ];
+
+                const tickerContent = document.getElementById('ticker-items');
+                if (!tickerContent) {
+                    console.error('Ticker container not found');
+                    tickerContent.innerHTML = '<span class="ticker-item">Error: Ticker failed to load</span>';
+                    return;
+                }
+
+                tickerContent.innerHTML = tickerItems.map(item => 
+                    `<span class="ticker-item">${item}</span>`
+                ).join('') + tickerItems.map(item => 
+                    `<span class="ticker-item">${item}</span>`
+                ).join('');
+
+                const ticker = document.querySelector('.ticker-content');
+                const items = document.querySelector('.ticker-items');
+                if (!ticker || !items) {
+                    console.error('Ticker elements not found');
+                    tickerContent.innerHTML = '<span class="ticker-item">Error: Ticker elements missing</span>';
+                    return;
+                }
+
+                // Calculate total width of items
+                const itemElements = document.querySelectorAll('.ticker-item');
+                let totalWidth = 0;
+                itemElements.forEach((item, index) => {
+                    const width = item.offsetWidth;
+                    totalWidth += width;
+                    console.log(`Ticker item ${index}: "${item.textContent}", width: ${width}px`);
+                });
+                console.log(`Total ticker items width: ${totalWidth}px`);
+
+                // Adjust animation speed based on screen size
+                const speed = window.innerWidth < 400 ? 40 : 50; // Slower on mobile
+                let xPos = 0;
+                let animationFrame;
+
+                function animateTicker() {
+                    const itemsWidth = items.offsetWidth / 2;
+                    xPos -= speed / 60;
+                    if (Math.abs(xPos) >= itemsWidth) {
+                        xPos += itemsWidth;
+                    }
+                    items.style.transform = `translateX(${xPos}px)`;
+                    animationFrame = requestAnimationFrame(animateTicker);
+                }
+
+                animateTicker();
+
+                ticker.addEventListener('mouseenter', () => {
+                    cancelAnimationFrame(animationFrame);
+                    console.log('Ticker paused on hover');
+                });
+                ticker.addEventListener('mouseleave', () => {
+                    animateTicker();
+                    console.log('Ticker resumed on mouse leave');
+                });
+                ticker.addEventListener('focus', () => {
+                    cancelAnimationFrame(animationFrame);
+                    console.log('Ticker paused on focus');
+                });
+                ticker.addEventListener('blur', () => {
+                    animateTicker();
+                    console.log('Ticker resumed on blur');
+                });
+
+                console.log('News ticker initialized with', tickerItems.length, 'items');
+            }
+
+            try {
+                initNewsTicker();
+            } catch (err) {
+                console.error('Error initializing news ticker:', err);
+                document.getElementById('ticker-items').innerHTML = '<span class="ticker-item">Error: Failed to load news</span>';
+            }
+
+            // Fetch and sort highlights
+            try {
+                const highlightsResponse = await fetch('/highlights');
+                if (!highlightsResponse.ok) throw new Error(`Failed to fetch highlights: ${highlightsResponse.status}`);
+                let highlights = await highlightsResponse.json();
+                console.log(`Fetched ${highlights.length} highlights`, JSON.stringify(highlights, null, 2));
+                
+                if (!Array.isArray(highlights) || highlights.length === 0) {
+                    throw new Error('No highlights returned or invalid data format');
+                }
+
+                const videoUrls = highlights.map(h => h.videoUrl);
+                const uniqueUrls = new Set(videoUrls);
+                if (uniqueUrls.size < videoUrls.length) {
+                    console.warn('Duplicate videoUrl detected in highlights:', [...uniqueUrls]);
+                }
+
+                highlights = highlights.map((h, i) => ({ ...h, index: i }));
+                highlights.sort((a, b) => {
+                    const dateA = a.date ? new Date(a.date) : new Date(0);
+                    const dateB = b.date ? new Date(b.date) : new Date(0);
+                    return dateB - dateA || b.index - a.index;
+                });
+                console.log('Sorted highlights (newest first):', JSON.stringify(highlights, null, 2));
+                console.log('Latest highlight:', highlights[0] || 'No highlights available');
+
+                const highlightsContainer = document.getElementById('highlights-container');
+                
+                highlightsContainer.innerHTML = highlights.map((highlight, index) => {
+                    const hasVideoUrl = highlight && typeof highlight.videoUrl === 'string' && highlight.videoUrl.trim() !== '';
+                    const hasThumbnailUrl = highlight && typeof highlight.thumbnailUrl === 'string' && highlight.thumbnailUrl.trim() !== '';
+                    const hasTitle = highlight && typeof highlight.title === 'string' && highlight.title.trim() !== '';
+                    const hasDescription = highlight && typeof highlight.description === 'string' && highlight.description.trim() !== '';
+                    const hasDate = highlight && typeof highlight.date === 'string' && highlight.date.trim() !== '';
+                    
+                    if (!hasVideoUrl || !hasThumbnailUrl || !hasTitle || !hasDescription || !hasDate) {
+                        console.warn(`Highlight at index ${index} is incomplete:`, {
+                            videoUrl: highlight?.videoUrl,
+                            thumbnailUrl: highlight?.thumbnailUrl,
+                            title: highlight?.title,
+                            description: highlight?.description,
+                            date: highlight?.date
+                        });
+                    }
+
+                    const thumbnailUrl = hasThumbnailUrl ? highlight.thumbnailUrl : 'https://via.placeholder.com/300x200?text=Highlight+' + (index + 1);
+                    const title = hasTitle ? highlight.title : `Highlight ${index + 1}`;
+                    const description = hasDescription ? highlight.description : 'No description available';
+                    const videoUrl = hasVideoUrl ? highlight.videoUrl : '#';
+
+                    if (description.length > 150) {
+                        console.warn(`Highlight ${index} description exceeds 150 characters, will be truncated:`, description);
+                    }
+
+                    console.log(`Rendering highlight card ${index}:`, { thumbnailUrl, title, description, videoUrl });
+
+                    return `
+                        <div class="swiper-slide mobile-card" style="opacity: 1 !important; visibility: visible !important;">
+                            <div class="card-3d bg-gray-900 rounded-lg overflow-hidden border-2 video-container" style="border-color: var(--bright-green); opacity: 1 !important;" onclick="openModal('${videoUrl}')" role="button" aria-label="Play ${title} video">
+                                <div class="h-40 md:h-48 bg-gray-800 relative">
+                                    <img src="${thumbnailUrl}" alt="${title} Thumbnail" class="w-full h-full object-cover" style="opacity: 1 !important;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="play-button h-12 w-12 md:h-16 md:w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="opacity: 1 !important;">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                                <div class="p-4">
+                                    <h1 class="text-lg md:text-xl font-bold mb-2" style="opacity: 1 !important;">${title}</h1>
+                                    <p class="text-gray-300 text-sm md:text-base truncate-text" style="opacity: 1 !important;">${description}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                if (highlightsContainer.innerHTML === '') {
+                    highlightsContainer.innerHTML = '<p class="text-center text-yellow-500">No highlights available. Please check the data source.</p>';
+                }
+
+                const swiper = new Swiper('#highlights-swiper', {
+                    slidesPerView: 1,
+                    spaceBetween: 16,
+                    freeMode: false,
+                    loop: true,
+                    initialSlide: 0,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: true,
+                        pauseOnMouseEnter: true
+                    },
+                    mousewheel: false,
+                    a11y: {
+                        enabled: true,
+                        slideRole: 'group',
+                        slideLabelMessage: 'Highlight: {{title}}',
+                    },
+                    breakpoints: {
+                        768: {
+                            slidesPerView: 'auto'
+                        }
+                    },
+                    on: {
+                        init: function () {
+                            console.log('Highlights Swiper initialized with', this.slides.length, 'slides, starting at index 0 (newest)');
+                        },
+                        slideChange: function () {
+                            console.log('Highlights Swiper slide changed, active index:', this.activeIndex);
+                        }
+                    }
+                });
+
+                swiper.update();
+                console.log('Highlights Swiper slides:', swiper.slides.length);
+
+                gsap.fromTo('.card-3d', 
+                    { x: 50, opacity: 0 }, 
+                    { 
+                        x: 0, 
+                        opacity: 1, 
+                        duration: 0.6, 
+                        stagger: 0.2, 
+                        scrollTrigger: { 
+                            trigger: '#highlights-swiper', 
+                            start: 'top 80%',
+                            onEnter: () => console.log('GSAP animation triggered for highlights')
+                        } 
+                    }
+                );
+            } catch (err) {
+                console.error('Error fetching highlights:', err);
+                document.getElementById('highlights-container').innerHTML = '<p class="text-center text-red-500">Failed to load highlights: ' + err.message + '. Please try again later.</p>';
+            }
+
+            // Fetch and sort wins
+            try {
+                const winsResponse = await fetch('/wins');
+                if (!winsResponse.ok) throw new Error(`Failed to fetch wins: ${winsResponse.status}`);
+                let wins = await winsResponse.json();
+                console.log(`Fetched ${wins.length} wins`, JSON.stringify(wins, null, 2));
+                
+                if (!Array.isArray(wins) || wins.length === 0) {
+                    throw new Error('No wins returned or invalid data format');
+                }
+
+                wins = wins.map((w, i) => ({ ...w, index: i }));
+                wins.sort((a, b) => {
+                    const dateA = a.date ? new Date(a.date) : new Date(0);
+                    const dateB = b.date ? new Date(b.date) : new Date(0);
+                    return dateB - dateA || b.index - a.index;
+                });
+                console.log('Sorted wins (newest first):', JSON.stringify(wins, null, 2));
+                console.log('Latest win:', wins[0] || 'No wins available');
+
+                const winsContainer = document.getElementById('wins-container');
+                
+                winsContainer.innerHTML = wins.map((win, index) => {
+                    const hasUsername = win && typeof win.username === 'string' && win.username.trim() !== '';
+                    const hasAmount = win && typeof win.amount === 'number';
+                    const hasGame = win && typeof win.game === 'string' && win.game.trim() !== '';
+                    const hasDetails = win && typeof win.details === 'string' && win.details.trim() !== '';
+                    const hasDate = win && typeof win.date === 'string' && win.date.trim() !== '';
+                    const hasImage = win && typeof win.image === 'string' && win.image.trim() !== '';
+                    
+                    if (!hasUsername || !hasAmount || !hasGame || !hasDetails || !hasDate || !hasImage) {
+                        console.warn(`Win at index ${index} is incomplete:`, {
+                            username: win?.username,
+                            amount: win?.amount,
+                            game: win?.game,
+                            details: win?.details,
+                            date: win?.date,
+                            image: win?.image
+                        });
+                    }
+
+                    const username = hasUsername ? win.username : `User ${index + 1}`;
+                    const amount = hasAmount ? win.amount : 0;
+                    const game = hasGame ? win.game : `Win ${index + 1}`;
+                    const details = hasDetails ? win.details : 'No details available';
+                    const date = hasDate ? new Date(win.date).toLocaleDateString() : 'No date available';
+                    const image = hasImage ? win.image : '/img/bc cup.png';
+
+                    if (details.length > 150) {
+                        console.warn(`Win ${index} details exceeds 150 characters, will be truncated:`, details);
+                    }
+
+                    console.log(`Rendering win card ${index}:`, { username, amount, game, details, date, image });
+
+                    return `
+                        <div class="swiper-slide mobile-card">
+                            <div class="flip-card h-64 md:h-72" role="button" aria-label="View details for ${game} win">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front bg-gray-900 rounded-lg border-2 flex flex-col items-center p-4" style="border-color: var(--gold);">
+                                        <img src="${image}" alt="${game} Win Image" class="w-full mb-2" style="opacity: 1 !important;" onerror="this.src='/img/bc cup.png'">
+                                        <h3 class="text-lg md:text-xl font-bold mb-2">$${amount.toLocaleString()}</h3>
+                                        <p class="text-gray-300 text-sm md:text-base">${game}</p>
+                                    </div>
+                                    <div class="flip-card-back rounded-lg flex flex-col items-center justify-center p-4" style="background-color: var(--dark-green);">
+                                        <h3 class="text-lg md:text-xl font-bold mb-2">${game}</h3>
+                                        <p class="text-center text-sm md:text-base mb-2">${username}</p>
+                                        <p class="text-center text-sm md:text-base truncate-text mb-4">${details}</p>
+                                        <p class="text-xs md:text-sm text-center">${date}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                new Swiper('#wins-swiper', {
+                    slidesPerView: 1,
+                    spaceBetween: 16,
+                    freeMode: false,
+                    loop: true,
+                    initialSlide: 0,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: true,
+                        pauseOnMouseEnter: true
+                    },
+                    mousewheel: false,
+                    a11y: {
+                        enabled: true,
+                        slideRole: 'group',
+                        slideLabelMessage: 'Win: {{title}}',
+                    },
+                    breakpoints: {
+                        768: {
+                            slidesPerView: 'auto'
+                        }
+                    },
+                    on: {
+                        init: function () {
+                            console.log('Wins Swiper initialized with', this.slides.length, 'slides, starting at index 0 (newest)');
+                        },
+                        slideChange: function () {
+                            console.log('Wins Swiper slide changed, active index:', this.activeIndex);
+                        }
+                    }
+                });
+
+                document.querySelectorAll('.flip-card').forEach(card => {
+                    card.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        card.classList.toggle('clicked');
+                    });
+                });
+
+                gsap.from('.flip-card', { 
+                    x: 50, 
+                    opacity: 0, 
+                    duration: 0.6, 
+                    stagger: 0.2, 
+                    scrollTrigger: { 
+                        trigger: '#wins-swiper', 
+                        start: 'top 80%' 
+                    } 
+                });
+            } catch (err) {
+                console.error('Error fetching wins:', err);
+                document.getElementById('wins-container').innerHTML = '<p class="text-center text-red-500">Failed to load wins: ' + err.message + '. Please try again later.</p>';
+            }
+
+            gsap.from('.hero-text', { opacity: 0, y: -30, duration: 0.6, delay: 1.5 });
+        });
+
+        function openModal(videoUrl) {
+            if (videoUrl === '#' || !videoUrl) {
+                console.warn('No valid video URL provided for modal');
+                return;
+            }
+            const modal = document.getElementById('video-modal');
+            const iframe = modal.querySelector('iframe');
+            const kickLink = modal.querySelector('.kick-link');
+            iframe.src = videoUrl;
+            kickLink.href = videoUrl;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('video-modal');
+            const iframe = modal.querySelector('iframe');
+            modal.style.display = 'none';
+            iframe.src = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        function copyAffiliateCode() {
+            alert('Affiliate code copied!');
+        }
+
+        function triggerConfetti() {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#FFD700', '#FFA500']
+            });
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+    </script>
+</body>
+</html>
