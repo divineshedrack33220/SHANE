@@ -13,6 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="icon" type="image/png" href="img/shane 3.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <script src="scripts.js"></script>
     <style>
@@ -64,6 +65,32 @@
             transform: perspective(500px) translateZ(10px);
         }
         
+        .btn-primary:disabled {
+            background-color: gray;
+            border-color: gray;
+            box-shadow: none;
+            cursor: not-allowed;
+        }
+        
+        .btn-live {
+            animation: pulse-glow 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 10px var(--bright-green);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 20px var(--bright-green);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 10px var(--bright-green);
+            }
+        }
+        
         .btn-secondary {
             background-color: var(--dark-green);
             color: var(--white);
@@ -79,6 +106,12 @@
         
         .btn-secondary:hover {
             transform: rotateY(5deg);
+        }
+        
+        .mobile-btn {
+            width: 100%;
+            height: 48px;
+            font-size: 1rem;
         }
         
         .card-3d {
@@ -143,6 +176,12 @@
         @media (min-width: 768px) {
             .flip-card-front img {
                 height: 12rem;
+            }
+            .btn-primary, .btn-secondary {
+                width: 20vw;
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
+                margin: 0.75rem auto;
             }
         }
         
@@ -271,7 +310,7 @@
         .video-container {
             position: relative;
             cursor: pointer;
-            min-height: 20rem;
+            min-height: 18rem;
             display: flex;
             flex-direction: column;
             opacity: 1 !important;
@@ -280,7 +319,7 @@
         
         .video-container img {
             width: 100%;
-            height: 10rem;
+            height: 11rem;
             object-fit: cover;
             background-color: #1a1a1a;
         }
@@ -319,7 +358,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 100vw; /* Full viewport width on mobile */
+            width: 100vw;
             flex-shrink: 0;
             opacity: 1 !important;
             visibility: visible !important;
@@ -328,35 +367,33 @@
         .swiper-slide .card-3d,
         .swiper-slide .flip-card {
             width: 100%;
-            max-width: calc(100vw - 24px); /* Account for padding */
+            max-width: calc(100vw - 24px);
         }
         
-        /* Text truncation styles */
         .truncate-text {
             display: -webkit-box;
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
-            max-height: 4.5rem; /* Approx 3 lines at 1.5rem line height */
+            max-height: 4.5rem;
         }
         
-        /* News ticker styles */
         .news-ticker {
             background-color: var(--dark-green);
             border: 2px solid var(--bright-green);
             box-shadow: 0 0 10px var(--bright-green);
-            height: 3rem; /* Fixed height for consistency */
+            height: 3rem;
             display: flex;
             align-items: center;
             overflow: hidden;
-            width: 100%; /* Full container width */
-            margin-top: 3rem; /* Space for popout image */
+            width: 100%;
+            margin-top: 3rem;
             margin-left: auto;
             margin-right: auto;
         }
         
         .ticker-logo {
-            height: 2rem; /* 32px mobile */
+            height: 2rem;
             width: auto;
             flex-shrink: 0;
             margin: 0 1rem;
@@ -372,21 +409,21 @@
         .ticker-items {
             display: inline-block;
             white-space: nowrap;
-            will-change: transform; /* Optimize animation */
+            will-change: transform;
         }
         
         .ticker-item {
             display: inline-block;
-            padding: 0 2rem; /* More spacing to prevent overlap */
-            font-size: 0.875rem; /* text-sm */
+            padding: 0 2rem;
+            font-size: 0.875rem;
             color: var(--white);
-            line-height: 3rem; /* Match container height */
-            min-width: fit-content; /* Ensure full text width */
+            line-height: 3rem;
+            min-width: fit-content;
         }
         
         .ticker-item:not(:last-child)::after {
             content: "•";
-            margin: 0 1.5rem; /* More spacing for separator */
+            margin: 0 1.5rem;
             color: var(--bright-green);
         }
         
@@ -396,78 +433,74 @@
         }
         
         .ticker-item {
-            white-space: nowrap; /* Ensure full text visibility */
-            overflow: visible; /* Prevent clipping */
+            white-space: nowrap;
+            overflow: visible;
         }
         
-        /* Hero section */
         #home {
             position: relative;
-            height: calc(65vh + 30px); /* Fixed height for mobile */
+            height: calc(65vh + 30px);
             display: flex;
-            flex-direction: column; /* Stack children vertically */
+            flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Start content from top */
-            background: black; /* Ensure dark background */
+            justify-content: flex-start;
+            background: black;
             padding-bottom: 0;
-            z-index: 1; /* Above other sections */
+            z-index: 1;
         }
         
-        /* Hero text container */
         .hero-text-container {
             position: absolute;
-            top: 68px; /* Below nav */
+            top: 68px;
             left: 0;
             right: 0;
-            z-index: 10; /* Above image */
-            text-align: center; /* Center text */
+            z-index: 10;
+            text-align: center;
         }
         
-        /* Hero text styles */
         .hero-text {
             position: absolute;
-            top: 0.5rem; /* Space from container top */
+            top: 0.5rem;
             left: 50%;
-            transform: translateX(-50%); /* Center horizontally */
-            display: inline-block; /* Fit content width */
-            max-width: 95vw; /* More space to prevent overflow */
-            background: rgba(0, 0, 0, 0.8); /* Contrast */
-            padding: 0.5rem 1rem; /* More padding for clarity */
+            transform: translateX(-50%);
+            display: inline-block;
+            max-width: 95vw;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 0.5rem 1rem;
             border-radius: 0.5rem;
             text-shadow: 2px 2px 4px var(--dark-green);
-            text-align: center; /* Center text */
-            font-size: 4vw; /* Smaller for mobile */
-            font-weight: 900; /* Thicker text */
-            white-space: nowrap; /* Prevent wrapping */
-            overflow: hidden; /* Hide overflow */
-            text-overflow: clip; /* No ellipsis */
+            text-align: center;
+            font-size: 4vw;
+            font-weight: 900;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: clip;
         }
         
-        /* Popout image container */
         .popup-container {
             position: absolute;
-            top: 100px; /* Below text and nav (mobile) */
+            top: 100px;
             left: 0;
             right: 0;
             bottom: 0;
             width: 100%;
-            height: calc(100% - 100px); /* Adjust for text and nav */
+            height: calc(100% - 100px);
             display: flex;
-            flex-direction: column; /* Stack image and buttons */
-            justify-content: flex-start; /* Start below text */
-            align-items: center; /* Center horizontally */
-            padding-top: 0.75rem; /* Space below text */
-            z-index: 5; /* Above background */
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding-top: 0.75rem;
+            z-index: 5;
         }
         
         .popup-image {
             width: auto;
             height: auto;
-            max-height: calc(50vh - 100px - 0.75rem - 2.5rem + 30px); /* Mobile, adjusted for text, padding, buttons */
-            max-width: 80vw; /* Full width for image */
+            max-height: calc(50vh - 100px - 0.75rem - 2.5rem + 30px);
+            max-width: 80vw;
             object-position: center;
-            margin: 0 auto; /* Center horizontally */
-            z-index: 0; /* Behind text */
+            margin: 0 auto;
+            z-index: 0;
         }
         
         .popup-image::before {
@@ -475,7 +508,7 @@
             position: absolute;
             inset: 0;
             background: linear-gradient(45deg, var(--gold-light), var(--gold-dark));
-            opacity: 0.3; /* Reduced for dark background visibility */
+            opacity: 0.3;
             z-index: -1;
             animation: pulse-gold 3s ease-in-out infinite;
         }
@@ -497,7 +530,7 @@
         
         @media (min-width: 768px) {
             #home {
-                height: calc(55vh + 30px); /* Fixed height for desktop */
+                height: calc(55vh + 30px);
             }
             .modal-content {
                 max-width: 64rem;
@@ -507,62 +540,59 @@
                 max-width: 80rem;
             }
             .swiper-slide {
-                width: 24rem; /* Fixed width for desktop */
+                width: 24rem;
             }
             .swiper-slide .card-3d,
             .swiper-slide .flip-card {
-                max-width: 22rem; /* Fixed max-width for desktop */
+                max-width: 22rem;
             }
             .truncate-text {
-                max-height: 4.5rem; /* Consistent height on desktop */
+                max-height: 4.5rem;
             }
             .news-ticker {
                 height: 3.5rem;
                 margin-top: 3.5rem;
-                max-width: 80rem; /* Match swiper-container */
+                max-width: 80rem;
             }
             .ticker-logo {
                 height: 2.5rem;
             }
             .ticker-item {
-                font-size: 1rem; /* text-base */
+                font-size: 1rem;
                 line-height: 3.5rem;
-                padding: 0 3rem; /* More spacing */
+                padding: 0 3rem;
             }
             .popup-container {
-                top: 110px; /* Below text (desktop) */
-                height: calc(100% - 110px); /* Adjust for text height */
-                padding-top: 1.5rem; /* Space below text */
+                top: 110px;
+                height: calc(100% - 110px);
+                padding-top: 1.5rem;
             }
             .popup-image {
-                max-height: calc(60vh - 110px - 1.5rem - 3rem + 30px); /* Desktop, adjusted for text, padding, buttons */
-                max-width: 80vw; /* Full width */
-                margin: 0 auto; /* Center horizontally */
+                max-height: calc(60vh - 110px - 1.5rem - 3rem + 30px);
+                max-width: 80vw;
+                margin: 0 auto;
             }
             .hero-text {
-                top: 1rem; /* Higher on desktop */
-                font-size: 2rem; /* Larger for sm */
-                font-weight: 900; /* Thicker text */
-                padding: 0.75rem 1.5rem; /* Larger padding */
-                margin-bottom: 0.75rem; /* Bottom margin for desktop */
-            }
-            .btn-primary, .btn-secondary {
-                width: 20vw; /* Narrower for desktop */
-                padding: 0.75rem 1.5rem; /* Larger padding */
-                font-size: 1rem; /* Larger text */
-                margin: 0.75rem auto; /* More spacing */
+                top: 1rem;
+                font-size: 2rem;
+                font-weight: 900;
+                padding: 0.75rem 1.5rem;
+                margin-bottom: 0.75rem;
             }
         }
         
         @media (min-width: 1024px) {
             .hero-text {
-                font-size: 2.5rem; /* Larger for md */
+                font-size: 2.5rem;
             }
         }
         
         @media (max-width: 767px) {
             .main-content {
-                margin-bottom: 60px; /* Gap for mobile nav */
+                margin-bottom: 60px;
+            }
+            body {
+                padding-bottom: 60px;
             }
         }
         
@@ -581,38 +611,38 @@
                 max-height: 4.5rem;
             }
             .ticker-item {
-                font-size: 0.7rem; /* Smaller for small screens */
-                padding: 0 2rem; /* Consistent spacing */
-                letter-spacing: -0.025rem; /* Condense text */
+                font-size: 0.7rem;
+                padding: 0 2rem;
+                letter-spacing: -0.025rem;
                 line-height: 3rem;
             }
             .popup-container {
-                top: 110px; /* Below text and nav (small screens) */
-                height: calc(100% - 110px); /* Adjust for text height */
-                padding-top: 0.5rem; /* Space below text */
+                top: 110px;
+                height: calc(100% - 110px);
+                padding-top: 0.5rem;
             }
             .popup-image {
-                max-height: calc(40vh - 110px - 0.5rem - 2rem + 30px); /* Small screens, adjusted for text, padding, buttons */
-                max-width: 80vw; /* Full width */
-                margin: 0 auto; /* Center horizontally */
+                max-height: calc(40vh - 110px - 0.5rem - 2rem + 30px);
+                max-width: 80vw;
+                margin: 0 auto;
             }
             .hero-text {
-                top: 0.25rem; /* Avoid nav overlap */
-                font-size: 0.75rem; /* Smaller for small screens */
-                font-weight: 900; /* Thicker text */
-                padding: 0.4rem 0.8rem; /* Adjusted padding */
-                margin-bottom: 0.5rem; /* Bottom margin for spacing */
-                max-width: 95vw; /* More space */
-                white-space: nowrap; /* Single line */
-                overflow: hidden; /* Hide overflow */
-                text-overflow: clip; /* No ellipsis */
-                letter-spacing: -0.025rem; /* Condense text */
+                top: 0.25rem;
+                font-size: 0.75rem;
+                font-weight: 900;
+                padding: 0.4rem 0.8rem;
+                margin-bottom: 0.5rem;
+                max-width: 95vw;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: clip;
+                letter-spacing: -0.025rem;
             }
             .btn-primary, .btn-secondary {
-                font-size: 0.75rem; /* Smaller text */
-                padding: 0.4rem 0.8rem; /* Smaller padding */
-                margin: 0.25rem auto; /* Less spacing */
-                width: 80vw; /* Match image */
+                font-size: 0.75rem;
+                padding: 0.4rem 0.8rem;
+                margin: 0.25rem auto;
+                width: 80vw;
             }
         }
         
@@ -701,7 +731,6 @@
     </section>
 
     <section class="main-content py-8 md:py-16 px-4 md:px-8 max-w-full mx-auto overflow-hidden pb-4 md:pb-8">
-        <!-- News Ticker Section -->
         <section class="news-ticker mb-6 md:mb-8" id="news-ticker" aria-live="polite">
             <img src="img/Trophy.gif" alt="BC Logo" class="ticker-logo">
             <div class="ticker-content">
@@ -730,7 +759,7 @@
             </div>
         </div>
         
-        <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-8 mt-8 md:mt-16 text-center">SH4NE_R's Latest Wins</h2>
+        <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-8 mt-8 md:mt-16 text-center"> Latest Wins</h2>
         <div class="swiper-container" id="wins-swiper" role="region" aria-label="Latest Wins Carousel">
             <div class="swiper-wrapper" id="wins-container">
                 <!-- Wins will be dynamically inserted here -->
@@ -744,22 +773,27 @@
                 <h3 class="text-lg md:text-xl font-bold mb-2" style="color: var(--bright-green); text-shadow: 2px 2px 4px var(--dark-green);">SH4NE_R</h3>
                 <p class="text-gray-300 text-sm md:text-base">Your Crypto Casino & Streaming Hub</p>
             </div>
-            <div class="flex space-x-4 md:space-x-6 mb-4 md:mb-0">
-                <a href="https://kick.com/sh4ne_r" target="_blank" class="social-icon" aria-label="Kick">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                    </svg>
-                </a>
-                <a href="https://discord.com/invite/your-discord-id" target="_blank" class="social-icon" aria-label="Discord">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 005.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                </a>
-                <a href="https://x.com/sh4ne_r?t=__QjwcPnji_WD--9hzs77g&s=08" target="_blank" class="social-icon" aria-label="X">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
-                    </svg>
-                </a>
+            <div class="flex flex-col items-center gap-4 mb-4 md:mb-0">
+                <div class="flex space-x-4 md:space-x-6">
+                    <a href="https://kick.com/sh4ne_r" target="_blank" class="social-icon" aria-label="Kick">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+                    </a>
+                    <a href="https://discord.com/invite/your-discord-id" target="_blank" class="social-icon" aria-label="Discord">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 005.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </a>
+                    <a href="https://x.com/sh4ne_r?t=__QjwcPnji_WD--9hzs77g&s=08" target="_blank" class="social-icon" aria-label="X">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+                        </svg>
+                    </a>
+                </div>
+                <div id="live-stream-footer" class="hidden">
+                    <button id="footer-stream-btn" class="btn-primary btn-live mobile-btn px-4 py-2 rounded-lg font-bold text-sm md:text-base">Join Live Stream!</button>
+                </div>
             </div>
             <div class="text-center md:text-right">
                 <p class="text-gray-300 text-sm md:text-base">&copy; 2025 SH4NE_R. All rights reserved.</p>
@@ -779,11 +813,62 @@
                 triggerConfetti();
             }, 1500);
 
-            // Initialize popout image animations
+            const API_BASE_URL = 'https://shane-9g1y.onrender.com';
+
+            async function fetchWithRetry(url, retries = 3, delay = 1000) {
+                for (let i = 0; i < retries; i++) {
+                    try {
+                        const response = await fetch(url, { headers: { 'Accept': 'application/json' } });
+                        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status} - ${response.statusText}`);
+                        return await response.json();
+                    } catch (error) {
+                        if (i === retries - 1) throw error;
+                        console.warn(`Retry ${i + 1} for ${url}: ${error.message}`);
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                    }
+                }
+            }
+
+            async function loadStreamStatus() {
+                const footerStreamContainer = document.getElementById('live-stream-footer');
+                const footerStreamButton = document.getElementById('footer-stream-btn');
+
+                try {
+                    console.log('Fetching stream status...');
+                    const { liveStatus } = await fetchWithRetry(`${API_BASE_URL}/stream-status`);
+                    console.log('Stream status:', liveStatus);
+
+                    if (liveStatus) {
+                        footerStreamContainer.classList.remove('hidden');
+                        footerStreamButton.disabled = false;
+                        footerStreamButton.classList.add('btn-live');
+                        footerStreamButton.onclick = () => window.location.href = 'https://kick.com/SH4NE_R';
+                    } else {
+                        footerStreamContainer.classList.add('hidden');
+                        footerStreamButton.disabled = true;
+                        footerStreamButton.classList.remove('btn-live');
+                    }
+                } catch (err) {
+                    console.error('Error fetching stream status:', {
+                        message: err.message,
+                        stack: err.stack,
+                        url: err.url || 'unknown'
+                    });
+                    footerStreamContainer.classList.add('hidden');
+                    footerStreamButton.disabled = true;
+                    footerStreamButton.classList.remove('btn-live');
+                }
+            }
+
             try {
-                // Initial bounce animation
+                await loadStreamStatus();
+            } catch (err) {
+                console.error('Error initializing stream status:', err);
+            }
+
+            try {
                 gsap.fromTo('.popup-image', 
-                    { y: '100%' }, // Start below ground
+                    { y: '100%' },
                     { 
                         y: '0%', 
                         duration: 1.5, 
@@ -791,7 +876,6 @@
                         delay: 1, 
                         onComplete: () => {
                             console.log('Popout image bounce animation completed');
-                            // Start up-and-down animation
                             gsap.to('.popup-image', {
                                 y: '-10px',
                                 duration: 2,
@@ -806,7 +890,6 @@
                 console.error('Error animating popout image:', err);
             }
 
-            // Initialize news ticker
             function initNewsTicker() {
                 const tickerItems = [
                     'BC Games Grand Finals – August 20th',
@@ -837,7 +920,6 @@
                     return;
                 }
 
-                // Calculate total width of items
                 const itemElements = document.querySelectorAll('.ticker-item');
                 let totalWidth = 0;
                 itemElements.forEach((item, index) => {
@@ -847,8 +929,7 @@
                 });
                 console.log(`Total ticker items width: ${totalWidth}px`);
 
-                // Adjust animation speed based on screen size
-                const speed = window.innerWidth < 400 ? 40 : 50; // Slower on mobile
+                const speed = window.innerWidth < 400 ? 40 : 50;
                 let xPos = 0;
                 let animationFrame;
 
@@ -891,7 +972,6 @@
                 document.getElementById('ticker-items').innerHTML = '<span class="ticker-item">Error: Failed to load news</span>';
             }
 
-            // Fetch and sort highlights
             try {
                 const highlightsResponse = await fetch('/highlights');
                 if (!highlightsResponse.ok) throw new Error(`Failed to fetch highlights: ${highlightsResponse.status}`);
@@ -1024,7 +1104,6 @@
                 document.getElementById('highlights-container').innerHTML = '<p class="text-center text-red-500">Failed to load highlights: ' + err.message + '. Please try again later.</p>';
             }
 
-            // Fetch and sort wins
             try {
                 const winsResponse = await fetch('/wins');
                 if (!winsResponse.ok) throw new Error(`Failed to fetch wins: ${winsResponse.status}`);
