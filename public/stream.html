@@ -474,7 +474,7 @@
             try {
                 // Fetch stream status
                 console.log('Fetching stream status...');
-                const { liveStatus } = await fetchWithRetry('http://localhost:3000/stream-status');
+                const { liveStatus } = await fetchWithRetry('http://https://shane-9g1y.onrender.com/stream-status');
                 console.log('Stream status:', liveStatus);
 
                 // Update button and indicator
@@ -545,3 +545,4 @@
     </script>
 </body>
 </html>
+
