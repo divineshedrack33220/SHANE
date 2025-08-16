@@ -37,10 +37,6 @@
             font-family: 'Poppins', sans-serif;
         }
         
-        .text-3d {
-            text-shadow: 2px 2px 4px var(--dark-green);
-        }
-        
         .btn-primary {
             background-color: var(--bright-green);
             border: 2px solid var(--dark-green);
@@ -101,6 +97,7 @@
         
         .wave-bg {
             position: relative;
+            z-index: 10; /* Ensure footer is below mobile nav but above content */
         }
         
         .wave-bg::before {
@@ -163,7 +160,6 @@
             overflow-wrap: break-word;
             word-break: break-word;
             display: -webkit-box;
-          
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -173,7 +169,6 @@
             overflow-wrap: break-word;
             word-break: break-word;
             display: -webkit-box;
-            
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -237,6 +232,8 @@
         
         @media (min-width: 768px) {
             .modal-content { max-width: 64rem; }
+            /* Hide footer on PC screens (≥ 768px) */
+            footer { display: none; }
         }
         
         @media (max-width: 1023px) {
@@ -244,7 +241,7 @@
             .swiper-container { display: block; }
         }
         
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
             .hero-text { text-shadow: 1px 1px 2px var(--dark-green); }
             .mobile-btn { width: 100%; height: 48px; font-size: 1rem; }
             .mobile-card { width: 100%; max-width: 90%; margin: 0 auto; }
@@ -254,6 +251,8 @@
             .mobile-nav-item span { font-size: 0.75rem; }
             .swiper-card { height: 14rem; }
             .modal-content { width: 90%; max-width: 300px; }
+            /* Add padding to body to clear mobile nav */
+            body { padding-bottom: 80px; } /* Clear 60px nav height + buffer */
         }
         
         @media (max-width: 400px) {
@@ -337,35 +336,35 @@
         </a>
     </nav>
 
-    <section id="events" class="py-8 md:py-16 px-4 md:px-8 max-w-full md:max-w-6xl mx-auto mt-8 md:mt-16 overflow-hidden">
-        <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center text-3d">SH4NE_R's Events</h2>
+    <section id="events" class="py-4 md:py-8 px-4 md:px-8 max-w-full md:max-w-6xl mx-auto mt-8 md:mt-16 overflow-hidden">
+        <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center">SH4NE_R's Events</h2>
         
-        <div class="flex flex-col md:flex-row gap-4 md:gap-6">
+        <div class="flex flex-col md:flex-row gap-2 md:gap-4">
             <div class="flex-1 mx-auto md:max-w-2xl">
-                <div class="bg-gray-900 rounded-lg p-4 md:p-6 border-2 card-3d mobile-card" style="border-color: var(--bright-green);">
-                    <h3 class="text-lg md:text-xl font-bold mb-4">Upcoming Events</h3>
-                    <p class="text-gray-300 text-sm md:text-base mb-4 event-description">Join SH4NE_R for exclusive crypto gaming and streaming events on BC.Game and Kick. Check out the latest events below!</p>
-                    <a href="#events-list" class="btn-primary px-6 py-3 rounded-lg font-bold text-sm md:text-base mobile-btn">View All Events</a>
+                <div class="bg-gray-900 rounded-lg p-4 md:p-6 border-2 card-3d mobile-card w-full mx-auto" style="border-color: var(--bright-green);">
+                    <h3 class="text-lg md:text-xl font-bold mb-4 text-center">Upcoming Events</h3>
+                    <p class="text-gray-300 text-sm md:text-base mb-4 event-description text-center">Join SH4NE_R for exclusive crypto gaming and streaming events on BC.Game and Kick. Check out the latest events below!</p>
+                    <a href="#events-list" class="btn-primary px-6 py-3 rounded-lg font-bold text-sm md:text-base mobile-btn w-full text-center">View All Events</a>
                 </div>
             </div>
             
-            <div class="md:w-80">
+            <div class="md:w-80 w-full mx-auto">
                 <div class="bg-gray-900 rounded-lg p-4 md:p-6 border-2 card-3d mobile-card" style="border-color: var(--dark-green);">
-                    <h3 class="text-lg md:text-xl font-bold mb-4">Why Attend?</h3>
-                    <ul class="space-y-2 text-gray-300 text-sm md:text-base">
-                        <li class="flex items-center">
+                    <h3 class="text-lg md:text-xl font-bold mb-4 text-center">Why Attend?</h3>
+                    <ul class="space-y-2 text-gray-300 text-sm md:text-base text-center">
+                        <li class="flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                             Exclusive giveaways
                         </li>
-                        <li class="flex items-center">
+                        <li class="flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
                             Live streaming sessions
                         </li>
-                        <li class="flex items-center">
+                        <li class="flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
@@ -389,7 +388,7 @@
         </div>
     </section>
 
-   <footer class="bg-black py-6 md:py-8 px-4 md:px-8 wave-bg">
+    <footer class="bg-black py-6 md:py-8 px-4 md:px-8 wave-bg">
         <div class="max-w-full md:max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
             <div class="mb-4 md:mb-0 text-center md:text-left">
                 <h3 class="text-lg md:text-xl font-bold mb-2" style="color: var(--bright-green); text-shadow: 2px 2px 4px var(--dark-green);">SH4NE_R</h3>
@@ -401,7 +400,8 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                     </svg>
                 </a>
-                <a href="https://discord.com/invite/your-discord-id" target="_blank" class="social-icon" aria-label="Discord">
+                <!-- Update Discord invite link if https://discord.gg/tt3jnrrgkX is invalid (for S4R server, Guild ID: 1396835317377536011) -->
+                <a href="https://discord.gg/tt3jnrrgkX" target="_blank" class="social-icon" aria-label="Discord">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 005.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
@@ -422,7 +422,6 @@
         </div>
     </footer>
 
-
     <script>
         console.log('events.html loaded');
         window.onerror = function (msg, url, lineNo, columnNo, error) {
@@ -435,7 +434,7 @@
                 const response = await fetch('/events');
                 if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
                 let events = await response.json();
-                const currentDate = new Date('2025-08-15T04:51:00+01:00'); // Current date: August 15, 2025, 04:51 AM WAT
+                const currentDate = new Date('2025-08-16T17:08:00+01:00'); // Current date: August 16, 2025, 05:08 PM WAT
                 const swiperContainer = document.getElementById('events-container-swiper');
                 const gridContainer = document.getElementById('events-container');
                 const noEventsModal = document.getElementById('no-events-modal');
@@ -459,12 +458,12 @@
                     const isExpired = eventDate < currentDate;
                     return `
                         <div class="swiper-slide swiper-card">
-                            <div class="card-3d bg-gray-900 rounded-lg p-4 border-2 relative" style="border-color: ${isExpired ? 'var(--red)' : 'var(--bright-green)'};">
+                            <div class="card-3d bg-gray-900 rounded-lg p-4 border-2 relative w-full mx-auto" style="border-color: ${isExpired ? 'var(--red)' : 'var(--bright-green)'};">
                                 ${isExpired ? '<span class="expired-badge">Expired</span>' : ''}
-                                <h4 class="text-base md:text-lg font-bold mb-2 event-title">${event.title}</h4>
-                                <p class="text-gray-300 text-sm md:text-base mb-2 event-description">${event.description}</p>
-                                <p class="text-sm text-gray-400">Date: ${eventDate.toLocaleDateString()}</p>
-                                <a href="${event.link || '#'}" class="btn-primary w-full h-12 md:w-auto md:h-auto px-4 py-2 rounded-lg mt-2 inline-block text-sm md:text-base mobile-btn" aria-label="View Event">View Event</a>
+                                <h4 class="text-base md:text-lg font-bold mb-2 event-title text-center">${event.title}</h4>
+                                <p class="text-gray-300 text-sm md:text-base mb-2 event-description text-center">${event.description}</p>
+                                <p class="text-sm text-gray-400 text-center">Date: ${eventDate.toLocaleDateString()}</p>
+                                <a href="${event.link || '#'}" class="btn-primary w-full h-12 md:w-auto md:h-auto px-4 py-2 rounded-lg mt-2 inline-block text-sm md:text-base mobile-btn text-center" aria-label="View Event">View Event</a>
                             </div>
                         </div>
                     `;
@@ -475,12 +474,12 @@
                     const eventDate = new Date(event.date);
                     const isExpired = eventDate < currentDate;
                     return `
-                        <div class="card-3d bg-gray-900 rounded-lg p-4 border-2 relative" style="border-color: ${isExpired ? 'var(--red)' : 'var(--bright-green)'};">
+                        <div class="card-3d bg-gray-900 rounded-lg p-4 border-2 relative w-full mx-auto" style="border-color: ${isExpired ? 'var(--red)' : 'var(--bright-green)'};">
                             ${isExpired ? '<span class="expired-badge">Expired</span>' : ''}
-                            <h4 class="text-base md:text-lg font-bold mb-2 event-title">${event.title}</h4>
-                            <p class="text-gray-300 text-sm md:text-base mb-2 event-description">${event.description}</p>
-                            <p class="text-sm text-gray-400">Date: ${eventDate.toLocaleDateString()}</p>
-                            <a href="${event.link || '#'}" class="btn-primary w-full h-12 md:w-auto md:h-auto px-4 py-2 rounded-lg mt-2 inline-block text-sm md:text-base mobile-btn" aria-label="View Event">View Event</a>
+                            <h4 class="text-base md:text-lg font-bold mb-2 event-title text-center">${event.title}</h4>
+                            <p class="text-gray-300 text-sm md:text-base mb-2 event-description text-center">${event.description}</p>
+                            <p class="text-sm text-gray-400 text-center">Date: ${eventDate.toLocaleDateString()}</p>
+                            <a href="${event.link || '#'}" class="btn-primary w-full h-12 md:w-auto md:h-auto px-4 py-2 rounded-lg mt-2 inline-block text-sm md:text-base mobile-btn text-center" aria-label="View Event">View Event</a>
                         </div>
                     `;
                 }).join('') : '<p class="text-center text-gray-300">No events available</p>';
@@ -504,6 +503,9 @@
                     console.log('Swiper initialized for events');
                 } catch (err) {
                     console.error('Swiper error:', err);
+                    document.getElementById('events-container-swiper').innerHTML = '<div class="swiper-slide swiper-card"><p class="text-center text-red-500">Failed to load events</p></div>';
+                    document.getElementById('events-container').innerHTML = '<p class="text-center text-red-500">Failed to load events</p>';
+                    document.getElementById('no-events-modal').style.display = 'flex';
                 }
             } catch (err) {
                 console.error('Error loading events:', err);
