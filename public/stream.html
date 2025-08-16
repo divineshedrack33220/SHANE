@@ -474,7 +474,7 @@
             try {
                 // Fetch stream status
                 console.log('Fetching stream status...');
-                const { liveStatus } = await fetchWithRetry('http://https://shane-9g1y.onrender.com/stream-status');
+                const { liveStatus } = await fetchWithRetry('https://shane-9g1y.onrender.com/stream-status');
                 console.log('Stream status:', liveStatus);
 
                 // Update button and indicator
@@ -493,7 +493,7 @@
 
                 // Fetch and display schedule
                 console.log('Fetching schedule...');
-                let schedules = await fetchWithRetry('http://https://shane-9g1y.onrender.com/schedule');
+                let schedules = await fetchWithRetry('https://shane-9g1y.onrender.com/schedule');
                 console.log('Schedules received:', schedules);
 
                 // Sort by date and take the 4 latest
@@ -545,5 +545,6 @@
     </script>
 </body>
 </html>
+
 
 
