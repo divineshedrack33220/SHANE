@@ -53,6 +53,32 @@
             transform: scale(1.05);
         }
         
+        .btn-primary:disabled {
+            background-color: gray;
+            border-color: gray;
+            box-shadow: none;
+            cursor: not-allowed;
+        }
+        
+        .btn-live {
+            animation: pulse-glow 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 10px var(--bright-green);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 20px var(--bright-green);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 10px var(--bright-green);
+            }
+        }
+        
         .btn-secondary {
             background-color: var(--dark-green);
             color: var(--white);
@@ -258,6 +284,9 @@
         }
         
         @media (max-width: 768px) {
+            body {
+                padding-bottom: 60px; /* Height of the bottom nav */
+            }
             .hero-text { text-shadow: 1px 1px 2px var(--dark-green); }
             .mobile-btn { width: 100%; height: 48px; font-size: 1rem; }
             nav.top-nav { height: 68px; padding: 0 8px; }
@@ -361,28 +390,33 @@
         </div>
     </section>
 
-   <footer class="bg-black py-6 md:py-8 px-4 md:px-8 wave-bg">
+    <footer class="bg-black py-6 md:py-8 px-4 md:px-8 wave-bg">
         <div class="max-w-full md:max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
             <div class="mb-4 md:mb-0 text-center md:text-left">
                 <h3 class="text-lg md:text-xl font-bold mb-2" style="color: var(--bright-green); text-shadow: 2px 2px 4px var(--dark-green);">SH4NE_R</h3>
                 <p class="text-gray-300 text-sm md:text-base">Your Crypto Casino & Streaming Hub</p>
             </div>
-            <div class="flex space-x-4 md:space-x-6 mb-4 md:mb-0">
-                <a href="https://kick.com/sh4ne_r" target="_blank" class="social-icon" aria-label="Kick">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                    </svg>
-                </a>
-                <a href="https://discord.com/invite/your-discord-id" target="_blank" class="social-icon" aria-label="Discord">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 005.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                </a>
-                <a href="https://x.com/sh4ne_r?t=__QjwcPnji_WD--9hzs77g&s=08" target="_blank" class="social-icon" aria-label="X">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
-                    </svg>
-                </a>
+            <div class="flex flex-col items-center gap-4 mb-4 md:mb-0">
+                <div class="flex space-x-4 md:space-x-6">
+                    <a href="https://kick.com/sh4ne_r" target="_blank" class="social-icon" aria-label="Kick">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+                    </a>
+                    <a href="https://discord.com/invite/your-discord-id" target="_blank" class="social-icon" aria-label="Discord">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 005.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </a>
+                    <a href="https://x.com/sh4ne_r?t=__QjwcPnji_WD--9hzs77g&s=08" target="_blank" class="social-icon" aria-label="X">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color: var(--bright-green);">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+                        </svg>
+                    </a>
+                </div>
+                <div id="live-stream-footer" class="hidden">
+                    <button id="footer-stream-btn" class="btn-primary btn-live px-4 py-2 rounded-lg font-bold text-sm md:text-base mobile-btn">Join Live Stream!</button>
+                </div>
             </div>
             <div class="text-center md:text-right">
                 <p class="text-gray-300 text-sm md:text-base">&copy; 2025 SH4NE_R. All rights reserved.</p>
@@ -394,7 +428,6 @@
         </div>
     </footer>
 
-
     <script>
         console.log('hall-of-fame.html loaded');
         window.onerror = function (msg, url, lineNo, columnNo, error) {
@@ -402,7 +435,7 @@
             return false;
         };
 
-        const API_BASE_URL = 'https://shane-9g1y.onrender.com'; // Adjust if backend is hosted elsewhere
+        const API_BASE_URL = 'http://localhost:3000'; // Adjust if backend is hosted elsewhere
 
         function triggerConfetti() {
             confetti({
@@ -425,6 +458,37 @@
                     console.warn(`Retry ${i + 1} for ${url}: ${error.message}`);
                     await new Promise(resolve => setTimeout(resolve, delay));
                 }
+            }
+        }
+
+        async function loadStreamStatus() {
+            const footerStreamContainer = document.getElementById('live-stream-footer');
+            const footerStreamButton = document.getElementById('footer-stream-btn');
+
+            try {
+                console.log('Fetching stream status...');
+                const { liveStatus } = await fetchWithRetry(`${API_BASE_URL}/stream-status`);
+                console.log('Stream status:', liveStatus);
+
+                if (liveStatus) {
+                    footerStreamContainer.classList.remove('hidden');
+                    footerStreamButton.disabled = false;
+                    footerStreamButton.classList.add('btn-live');
+                    footerStreamButton.onclick = () => window.location.href = 'https://kick.com/SH4NE_R';
+                } else {
+                    footerStreamContainer.classList.add('hidden');
+                    footerStreamButton.disabled = true;
+                    footerStreamButton.classList.remove('btn-live');
+                }
+            } catch (err) {
+                console.error('Error fetching stream status:', {
+                    message: err.message,
+                    stack: err.stack,
+                    url: err.url || 'unknown'
+                });
+                footerStreamContainer.classList.add('hidden');
+                footerStreamButton.disabled = true;
+                footerStreamButton.classList.remove('btn-live');
             }
         }
 
@@ -631,6 +695,7 @@
                     }
                 }
                 loadWins();
+                loadStreamStatus();
             }, 1500);
         });
     </script>
