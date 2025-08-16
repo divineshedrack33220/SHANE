@@ -141,6 +141,7 @@
         
         .wave-bg {
             position: relative;
+            z-index: 10; /* Ensure footer is below mobile nav but above content */
         }
         
         .wave-bg::before {
@@ -222,11 +223,11 @@
             }
         }
         
-        /* Set base Swiper card styles with flexible width */
+        /* Set base Swiper card styles with flexible width for mobile */
         .swiper-card {
             width: calc(100% - 2rem);
             margin: 0 1rem;
-            height: 100px; /* Restore requested height */
+            height: 100px; /* Requested height */
         }
 
         /* Ensure card-3d fills swiper-card */
@@ -238,16 +239,23 @@
 
         /* Center Swiper container and prevent clipping */
         .swiper-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 1140px; /* Constrain to fit 3 cards on desktop */
             margin: 0 auto;
             overflow: visible;
-            max-width: 100%; /* Fit container to viewport */
         }
 
+        /* Center slides within wrapper */
         .swiper-wrapper {
-            padding: 0 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 0.5rem; /* Minimal padding for mobile visibility */
         }
 
-        /* Maintain consistent alignment */
+        /* Maintain consistent alignment for affiliate section */
         #affiliate .flex-col.md\:flex-row {
             gap: 1.5rem;
         }
@@ -256,10 +264,13 @@
             .modal-content {
                 max-width: 64rem;
             }
-            /* Fixed width for desktop */
+            /* Fixed width for desktop to prevent cut-off */
             .swiper-card {
-                width: 350px;
+                width: 340px; /* Reduced from 350px to fit 1080px total */
                 margin: 0 15px;
+            }
+            .swiper-wrapper {
+                padding: 0; /* Remove padding for desktop centering */
             }
         }
         
@@ -313,14 +324,15 @@
                 padding-right: 0;
             }
 
-            /* Fixed width for mobile */
+            /* Flexible width for mobile to ensure visibility */
             .swiper-card {
-                width: 300px;
-                margin: 0 15px;
+                width: calc(100% - 2rem);
+                margin: 0 1rem;
             }
 
-            .swiper-wrapper {
-                padding: 0;
+            /* Add padding to body to clear mobile nav */
+            body {
+                padding-bottom: 80px; /* Clear 60px nav height + buffer */
             }
         }
         
@@ -336,7 +348,7 @@
             /* Fixed width for very small screens */
             .swiper-card {
                 width: 280px;
-                margin: 0 15px;
+                margin: 0 1rem;
             }
 
             /* Reduce font size to fit 200px height */
@@ -445,6 +457,12 @@
             <h3 class="text-xl md:text-2xl font-bold mb-4 text-center">How It Works</h3>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
+                    <div class="swiper-slide swiper-card">Step 2: Sign Up
+                        <div class="card-3d bg-gray-900 rounded-lg p-4 border-2" style="border-color: var(--bright-green);">
+                            <h4 class="text-base md:text-lg font-bold mb-2">Step 1: Copy Code</h4>
+                            <p class="text-gray-300 text-sm md:text-base">Click the button to copy SH4NE_R's affiliate code.</p>
+                        </div>
+                    </div>
                     <div class="swiper-slide swiper-card">
                         <div class="card-3d bg-gray-900 rounded-lg p-4 border-2" style="border-color: var(--bright-green);">
                             <h4 class="text-base md:text-lg font-bold mb-2">Step 1: Copy Code</h4>
@@ -454,13 +472,7 @@
                     <div class="swiper-slide swiper-card">
                         <div class="card-3d bg-gray-900 rounded-lg p-4 border-2" style="border-color: var(--bright-green);">
                             <h4 class="text-base md:text-lg font-bold mb-2">Step 2: Sign Up</h4>
-                            <p class="text-gray-300 text-sm md:text-base">Visit BC.Game and enter the code during registration.</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide swiper-card">
-                        <div class="card-3d bg-gray-900 rounded-lg p-4 border-2" style="border-color: var(--bright-green);">
-                            <h4 class="text-base md:text-lg font-bold mb-2">Step 3: Play & Win</h4>
-                            <p class="text-gray-300 text-sm md:text-base">Enjoy exclusive bonuses and start playing!</p>
+                            <p class="text-gray-300 text-sm md:text-base">Visit BC.Game And Register</p>
                         </div>
                     </div>
                 </div>
@@ -522,6 +534,41 @@
             });
         }
 
+        // Initialize Swiper immediately for mobile visibility
+        try {
+            const swipers = document.querySelectorAll('.swiper-container');
+            swipers.forEach(swiper => {
+                const swiperInstance = new Swiper(swiper, {
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                    centeredSlides: true,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false
+                    },
+                    breakpoints: {
+                        768: {
+                            slidesPerView: 2,
+                            spaceBetween: 30,
+                            centeredSlides: false,
+                            autoplay: false
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 30, /* Consistent spacing to fit all cards */
+                            centeredSlides: false,
+                            autoplay: false
+                        }
+                    }
+                });
+                // Force Swiper to refresh for first slide visibility
+                swiperInstance.update();
+                console.log('Swiper initialized with autoplay:', swiper);
+            });
+        } catch (err) {
+            console.error('Swiper error:', err.message, err.stack);
+        }
+
         window.addEventListener('load', () => {
             setTimeout(() => {
                 const loading = document.getElementById('loading');
@@ -535,39 +582,6 @@
                     }
                 }
             }, 1500);
-
-            // Initialize Swiper for How It Works cards
-            try {
-                const swipers = document.querySelectorAll('.swiper-container');
-                swipers.forEach(swiper => {
-                    new Swiper(swiper, {
-                        slidesPerView: 1,
-                        spaceBetween: 30,
-                        centeredSlides: true,
-                        autoplay: {
-                            delay: 3000,
-                            disableOnInteraction: false
-                        },
-                        breakpoints: {
-                            768: {
-                                slidesPerView: 2,
-                                spaceBetween: 30,
-                                centeredSlides: false,
-                                autoplay: false
-                            },
-                            1024: {
-                                slidesPerView: 3,
-                                spaceBetween: 30, /* Ensure all cards fit without cut-off */
-                                centeredSlides: false,
-                                autoplay: false
-                            }
-                        }
-                    });
-                    console.log('Swiper initialized with autoplay:', swiper);
-                });
-            } catch (err) {
-                console.error('Swiper error:', err.message, err.stack);
-            }
         });
 
         // Fallback for copyAffiliateCode
