@@ -8,7 +8,6 @@
     <meta name="og:description" content="Unlock exclusive bonuses with SH4NE_R's BC.Game affiliate code!">
     <title>SH4NE_R - Affiliate</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
@@ -67,8 +66,8 @@
         .card-3d {
             transform-style: preserve-3d;
             transition: all 0.5s ease;
-            width: 100%;
-           
+            width: calc(100% - 2rem);
+            margin: 0 auto;
         }
         
         .card-3d:hover {
@@ -79,7 +78,6 @@
             perspective: 1000px;
             position: relative;
             width: 100%;
-           
         }
         
         .flip-card-inner {
@@ -224,18 +222,48 @@
             }
         }
         
+        /* Set base Swiper card styles with flexible width */
         .swiper-card {
-            width: 100%;
-           
+            width: calc(100% - 2rem);
+            margin: 0 1rem;
+            height: 100px; /* Restore requested height */
         }
-        
+
+        /* Ensure card-3d fills swiper-card */
+        .swiper-slide .card-3d {
+            width: 100%;
+            height: 100%;
+            padding: 12px; /* Fit content in 200px height */
+        }
+
+        /* Center Swiper container and prevent clipping */
+        .swiper-container {
+            margin: 0 auto;
+            overflow: visible;
+            max-width: 100%; /* Fit container to viewport */
+        }
+
+        .swiper-wrapper {
+            padding: 0 1rem;
+        }
+
+        /* Maintain consistent alignment */
+        #affiliate .flex-col.md\:flex-row {
+            gap: 1.5rem;
+        }
+
         @media (min-width: 768px) {
             .modal-content {
                 max-width: 64rem;
             }
+            /* Fixed width for desktop */
+            .swiper-card {
+                width: 350px;
+                margin: 0 15px;
+            }
         }
         
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
             .hero-text {
                 text-shadow: 1px 1px 2px var(--dark-green);
             }
@@ -269,9 +297,34 @@
             .mobile-nav-item span {
                 font-size: 0.75rem;
             }
+
+            /* Center affiliate cards */
+            #affiliate .card-3d {
+                width: calc(100% - 1rem);
+                margin: 0 auto;
+            }
+
+            #affiliate .flex-1 .card-3d {
+                margin-bottom: 2rem;
+            }
+
+            #affiliate {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            /* Fixed width for mobile */
+            .swiper-card {
+                width: 300px;
+                margin: 0 15px;
+            }
+
+            .swiper-wrapper {
+                padding: 0;
+            }
         }
         
-        @media (max-width: 400px) {
+        @media (max-width: 360px) {
             .mobile-nav-item svg {
                 height: 1.25rem;
                 width: 1.25rem;
@@ -279,8 +332,16 @@
             .mobile-nav-item span {
                 font-size: 0.65rem;
             }
-            .card-3d, .swiper-card {
-                height: 14rem;
+
+            /* Fixed width for very small screens */
+            .swiper-card {
+                width: 280px;
+                margin: 0 15px;
+            }
+
+            /* Reduce font size to fit 200px height */
+            .swiper-slide .card-3d p {
+                font-size: 0.75rem;
             }
         }
     </style>
@@ -290,7 +351,7 @@
         <img src="img/logo.png" alt="SH4NE_R Logo" class="max-w-[150px] sm:max-w-[200px] gradient-shadow">
     </div>
 
- <nav class="top-nav flex items-center justify-between px-4 sm:px-6 py-2 bg-black bg-opacity-95 backdrop-blur-sm sticky top-0 z-40 shadow-lg" style="box-shadow: 0 4px 10px var(--dark-green); height: 68px;">
+    <nav class="top-nav flex items-center justify-between px-4 sm:px-6 py-2 bg-black bg-opacity-95 backdrop-blur-sm sticky top-0 z-40 shadow-lg" style="box-shadow: 0 4px 10px var(--dark-green); height: 68px;">
         <img src="img/logo.png" alt="SH4NE_R Logo" class="h-[60px] w-auto object-contain">
         <div class="flex flex-wrap gap-2 sm:gap-4">
             <a href="index.html" class="nav-item text-white text-sm sm:text-base hidden md:block" aria-label="Home">Home</a>
@@ -335,11 +396,9 @@
             </svg>
             <span class="text-xs text-gray-300">Community</span>
         </a>
-      
-        </a>
     </nav>
 
-    <section id="affiliate" class="py-8 md:py-16 px-4 md:px-8 max-w-full mx-auto mt-8 md:mt-16 overflow-hidden">
+    <section id="affiliate" class="py-8 md:py-16 px-4 md:px-8 max-w-7xl mx-auto mt-8 md:mt-16 overflow-hidden">
         <h2 class="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center text-3d">Join BC.Game with SH4NE_R's Affiliate Code</h2>
         
         <div class="flex flex-col md:flex-row gap-4 md:gap-6">
@@ -409,7 +468,7 @@
         </div>
     </section>
 
-       <footer class="bg-black py-6 md:py-8 px-4 md:px-8 wave-bg">
+    <footer class="bg-black py-6 md:py-8 px-4 md:px-8 wave-bg">
         <div class="max-w-full md:max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
             <div class="mb-4 md:mb-0 text-center md:text-left">
                 <h3 class="text-lg md:text-xl font-bold mb-2" style="color: var(--bright-green); text-shadow: 2px 2px 4px var(--dark-green);">SH4NE_R</h3>
@@ -442,13 +501,26 @@
         </div>
     </footer>
 
-
     <script>
         console.log('affiliate.html loaded');
         window.onerror = function (msg, url, lineNo, columnNo, error) {
             console.error('Global error:', msg, 'at', url, lineNo, columnNo, error);
             return false;
         };
+
+        // Define triggerConfetti function
+        function triggerConfetti() {
+            if (typeof confetti === 'undefined') {
+                console.error('Confetti library not loaded');
+                return;
+            }
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#0faf1c', '#0a6e10', '#ffffff']
+            });
+        }
 
         window.addEventListener('load', () => {
             setTimeout(() => {
@@ -457,49 +529,58 @@
                     loading.style.display = 'none';
                     try {
                         triggerConfetti();
-                        console.log('Confetti triggered');
+                        console.log('Confetti triggered successfully');
                     } catch (err) {
-                        console.error('Confetti error:', err);
+                        console.error('Confetti error:', err.message, err.stack);
                     }
                 }
             }, 1500);
+
+            // Initialize Swiper for How It Works cards
+            try {
+                const swipers = document.querySelectorAll('.swiper-container');
+                swipers.forEach(swiper => {
+                    new Swiper(swiper, {
+                        slidesPerView: 1,
+                        spaceBetween: 30,
+                        centeredSlides: true,
+                        autoplay: {
+                            delay: 3000,
+                            disableOnInteraction: false
+                        },
+                        breakpoints: {
+                            768: {
+                                slidesPerView: 2,
+                                spaceBetween: 30,
+                                centeredSlides: false,
+                                autoplay: false
+                            },
+                            1024: {
+                                slidesPerView: 3,
+                                spaceBetween: 30, /* Ensure all cards fit without cut-off */
+                                centeredSlides: false,
+                                autoplay: false
+                            }
+                        }
+                    });
+                    console.log('Swiper initialized with autoplay:', swiper);
+                });
+            } catch (err) {
+                console.error('Swiper error:', err.message, err.stack);
+            }
         });
 
-        try {
-            gsap.registerPlugin(ScrollTrigger);
-            gsap.from('.text-3d', { opacity: 0, y: 50, duration: 1, delay: 2 });
-            gsap.from('.btn-primary', { scale: 0.9, opacity: 0, duration: 0.4, stagger: 0.2, delay: 2.5 });
-            gsap.from('.card-3d', { y: 100, opacity: 0, duration: 0.6, stagger: 0.3, scrollTrigger: { trigger: '.card-3d', start: 'top 80%' } });
-            console.log('GSAP animations initialized');
-        } catch (err) {
-            console.error('GSAP error:', err);
-        }
-
-        try {
-            const swipers = document.querySelectorAll('.swiper-container');
-            swipers.forEach(swiper => {
-                new Swiper(swiper, {
-                    slidesPerView: 1,
-                    spaceBetween: 20,
-                    autoplay: {
-                        delay: 3000,
-                        disableOnInteraction: false
-                    },
-                    breakpoints: {
-                        768: {
-                            slidesPerView: 2,
-                            autoplay: false
-                        },
-                        1024: {
-                            slidesPerView: 3,
-                            autoplay: false
-                        }
-                    }
+        // Fallback for copyAffiliateCode
+        if (typeof copyAffiliateCode === 'undefined') {
+            function copyAffiliateCode() {
+                const code = document.getElementById('affiliate-code').textContent;
+                navigator.clipboard.writeText(code).then(() => {
+                    alert('Affiliate code copied to clipboard!');
+                }).catch(err => {
+                    console.error('Failed to copy affiliate code:', err);
+                    alert('Failed to copy code. Please copy manually: ' + code);
                 });
-                console.log('Swiper initialized with autoplay:', swiper);
-            });
-        } catch (err) {
-            console.error('Swiper error:', err);
+            }
         }
 
         document.querySelector('.btn-primary[onclick="copyAffiliateCode()"]').addEventListener('click', () => {
@@ -507,7 +588,7 @@
                 copyAffiliateCode();
                 console.log('Affiliate code copy attempted');
             } catch (err) {
-                console.error('Copy affiliate code error:', err);
+                console.error('Copy affiliate code error:', err.message, err.stack);
             }
         });
     </script>
